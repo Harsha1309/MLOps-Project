@@ -1,0 +1,673 @@
+place,state,category,region,month,month_num,avg_temp_c,avg_rainfall_mm,cost_tier,is_best_month,suitability_score
+Manali,Himachal Pradesh,Hill Station,North Mountains,January,1,-0.1,29.0,2,0,3.53
+Manali,Himachal Pradesh,Hill Station,North Mountains,February,2,5.0,29.0,2,0,4.81
+Manali,Himachal Pradesh,Hill Station,North Mountains,March,3,12.0,29.0,2,1,7.56
+Manali,Himachal Pradesh,Hill Station,North Mountains,April,4,19.0,29.0,2,1,9.81
+Manali,Himachal Pradesh,Hill Station,North Mountains,May,5,24.1,29.0,2,1,9.81
+Manali,Himachal Pradesh,Hill Station,North Mountains,June,6,26.0,125.0,2,1,9.17
+Manali,Himachal Pradesh,Hill Station,North Mountains,July,7,24.1,125.0,2,0,8.17
+Manali,Himachal Pradesh,Hill Station,North Mountains,August,8,19.0,125.0,2,0,8.17
+Manali,Himachal Pradesh,Hill Station,North Mountains,September,9,12.0,125.0,2,1,6.92
+Manali,Himachal Pradesh,Hill Station,North Mountains,October,10,5.0,29.0,2,1,5.81
+Manali,Himachal Pradesh,Hill Station,North Mountains,November,11,-0.1,29.0,2,1,4.53
+Manali,Himachal Pradesh,Hill Station,North Mountains,December,12,-2.0,29.0,2,0,3.06
+Shimla,Himachal Pradesh,Hill Station,North Mountains,January,1,2.6,29.0,2,0,4.21
+Shimla,Himachal Pradesh,Hill Station,North Mountains,February,2,7.0,29.0,2,0,5.31
+Shimla,Himachal Pradesh,Hill Station,North Mountains,March,3,13.0,29.0,2,1,7.81
+Shimla,Himachal Pradesh,Hill Station,North Mountains,April,4,19.0,29.0,2,1,9.81
+Shimla,Himachal Pradesh,Hill Station,North Mountains,May,5,23.4,29.0,2,1,9.81
+Shimla,Himachal Pradesh,Hill Station,North Mountains,June,6,25.0,125.0,2,1,9.17
+Shimla,Himachal Pradesh,Hill Station,North Mountains,July,7,23.4,125.0,2,0,8.17
+Shimla,Himachal Pradesh,Hill Station,North Mountains,August,8,19.0,125.0,2,0,8.17
+Shimla,Himachal Pradesh,Hill Station,North Mountains,September,9,13.0,125.0,2,1,7.17
+Shimla,Himachal Pradesh,Hill Station,North Mountains,October,10,7.0,29.0,2,1,6.31
+Shimla,Himachal Pradesh,Hill Station,North Mountains,November,11,2.6,29.0,2,1,5.21
+Shimla,Himachal Pradesh,Hill Station,North Mountains,December,12,1.0,29.0,2,0,3.81
+Leh,Ladakh,Hill Station,North Mountains,January,1,-11.9,21.5,3,0,2.86
+Leh,Ladakh,Hill Station,North Mountains,February,2,-6.0,21.5,3,0,2.86
+Leh,Ladakh,Hill Station,North Mountains,March,3,2.0,21.5,3,0,4.11
+Leh,Ladakh,Hill Station,North Mountains,April,4,10.0,21.5,3,0,6.11
+Leh,Ladakh,Hill Station,North Mountains,May,5,15.9,21.5,3,1,9.86
+Leh,Ladakh,Hill Station,North Mountains,June,6,18.0,37.5,3,1,9.75
+Leh,Ladakh,Hill Station,North Mountains,July,7,15.9,37.5,3,1,9.75
+Leh,Ladakh,Hill Station,North Mountains,August,8,10.0,37.5,3,1,7.0
+Leh,Ladakh,Hill Station,North Mountains,September,9,2.0,37.5,3,1,5.0
+Leh,Ladakh,Hill Station,North Mountains,October,10,-6.0,21.5,3,0,2.86
+Leh,Ladakh,Hill Station,North Mountains,November,11,-11.9,21.5,3,0,2.86
+Leh,Ladakh,Hill Station,North Mountains,December,12,-14.0,21.5,3,0,2.86
+Darjeeling,West Bengal,Hill Station,East Mountains,January,1,8.1,38.0,2,0,5.52
+Darjeeling,West Bengal,Hill Station,East Mountains,February,2,11.0,38.0,2,0,6.25
+Darjeeling,West Bengal,Hill Station,East Mountains,March,3,15.0,38.0,2,1,9.75
+Darjeeling,West Bengal,Hill Station,East Mountains,April,4,19.0,38.0,2,1,9.75
+Darjeeling,West Bengal,Hill Station,East Mountains,May,5,21.9,38.0,2,1,9.75
+Darjeeling,West Bengal,Hill Station,East Mountains,June,6,23.0,230.0,2,0,7.47
+Darjeeling,West Bengal,Hill Station,East Mountains,July,7,21.9,230.0,2,0,7.47
+Darjeeling,West Bengal,Hill Station,East Mountains,August,8,19.0,230.0,2,0,7.47
+Darjeeling,West Bengal,Hill Station,East Mountains,September,9,15.0,230.0,2,0,7.47
+Darjeeling,West Bengal,Hill Station,East Mountains,October,10,11.0,128.0,2,1,6.65
+Darjeeling,West Bengal,Hill Station,East Mountains,November,11,8.1,128.0,2,1,5.92
+Darjeeling,West Bengal,Hill Station,East Mountains,December,12,7.0,38.0,2,0,5.25
+Ooty,Tamil Nadu,Hill Station,South Mountains,January,1,11.7,32.0,2,0,6.46
+Ooty,Tamil Nadu,Hill Station,South Mountains,February,2,13.5,32.0,2,0,6.91
+Ooty,Tamil Nadu,Hill Station,South Mountains,March,3,16.0,32.0,2,1,9.79
+Ooty,Tamil Nadu,Hill Station,South Mountains,April,4,18.5,32.0,2,1,9.79
+Ooty,Tamil Nadu,Hill Station,South Mountains,May,5,20.3,32.0,2,1,9.79
+Ooty,Tamil Nadu,Hill Station,South Mountains,June,6,21.0,160.0,2,0,7.93
+Ooty,Tamil Nadu,Hill Station,South Mountains,July,7,20.3,160.0,2,0,7.93
+Ooty,Tamil Nadu,Hill Station,South Mountains,August,8,18.5,160.0,2,0,7.93
+Ooty,Tamil Nadu,Hill Station,South Mountains,September,9,16.0,160.0,2,1,8.93
+Ooty,Tamil Nadu,Hill Station,South Mountains,October,10,13.5,32.0,2,1,7.91
+Ooty,Tamil Nadu,Hill Station,South Mountains,November,11,11.7,32.0,2,1,7.46
+Ooty,Tamil Nadu,Hill Station,South Mountains,December,12,11.0,32.0,2,0,6.29
+Munnar,Kerala,Hill Station,South Mountains,January,1,15.7,38.0,2,1,9.75
+Munnar,Kerala,Hill Station,South Mountains,February,2,17.5,38.0,2,1,9.75
+Munnar,Kerala,Hill Station,South Mountains,March,3,20.0,38.0,2,0,8.75
+Munnar,Kerala,Hill Station,South Mountains,April,4,22.5,38.0,2,0,8.75
+Munnar,Kerala,Hill Station,South Mountains,May,5,24.3,38.0,2,0,8.75
+Munnar,Kerala,Hill Station,South Mountains,June,6,25.0,230.0,2,0,7.47
+Munnar,Kerala,Hill Station,South Mountains,July,7,24.3,230.0,2,0,7.47
+Munnar,Kerala,Hill Station,South Mountains,August,8,22.5,230.0,2,0,7.47
+Munnar,Kerala,Hill Station,South Mountains,September,9,20.0,230.0,2,1,8.47
+Munnar,Kerala,Hill Station,South Mountains,October,10,17.5,38.0,2,1,9.75
+Munnar,Kerala,Hill Station,South Mountains,November,11,15.7,38.0,2,1,9.75
+Munnar,Kerala,Hill Station,South Mountains,December,12,15.0,38.0,2,1,9.75
+Gangtok,Sikkim,Hill Station,East Mountains,January,1,8.9,36.5,2,0,5.73
+Gangtok,Sikkim,Hill Station,East Mountains,February,2,11.5,36.5,2,0,6.38
+Gangtok,Sikkim,Hill Station,East Mountains,March,3,15.0,36.5,2,1,9.76
+Gangtok,Sikkim,Hill Station,East Mountains,April,4,18.5,36.5,2,1,9.76
+Gangtok,Sikkim,Hill Station,East Mountains,May,5,21.1,36.5,2,1,9.76
+Gangtok,Sikkim,Hill Station,East Mountains,June,6,22.0,212.5,2,0,7.58
+Gangtok,Sikkim,Hill Station,East Mountains,July,7,21.1,212.5,2,0,7.58
+Gangtok,Sikkim,Hill Station,East Mountains,August,8,18.5,212.5,2,0,7.58
+Gangtok,Sikkim,Hill Station,East Mountains,September,9,15.0,212.5,2,0,7.58
+Gangtok,Sikkim,Hill Station,East Mountains,October,10,11.5,119.0,2,1,6.83
+Gangtok,Sikkim,Hill Station,East Mountains,November,11,8.9,119.0,2,1,6.18
+Gangtok,Sikkim,Hill Station,East Mountains,December,12,8.0,36.5,2,0,5.51
+Mussoorie,Uttarakhand,Hill Station,North Mountains,January,1,6.3,32.0,2,0,5.11
+Mussoorie,Uttarakhand,Hill Station,North Mountains,February,2,10.0,32.0,2,0,6.04
+Mussoorie,Uttarakhand,Hill Station,North Mountains,March,3,15.0,32.0,2,1,9.79
+Mussoorie,Uttarakhand,Hill Station,North Mountains,April,4,20.0,32.0,2,1,9.79
+Mussoorie,Uttarakhand,Hill Station,North Mountains,May,5,23.7,32.0,2,1,9.79
+Mussoorie,Uttarakhand,Hill Station,North Mountains,June,6,25.0,160.0,2,1,8.93
+Mussoorie,Uttarakhand,Hill Station,North Mountains,July,7,23.7,160.0,2,0,7.93
+Mussoorie,Uttarakhand,Hill Station,North Mountains,August,8,20.0,160.0,2,0,7.93
+Mussoorie,Uttarakhand,Hill Station,North Mountains,September,9,15.0,160.0,2,1,8.93
+Mussoorie,Uttarakhand,Hill Station,North Mountains,October,10,10.0,32.0,2,1,7.04
+Mussoorie,Uttarakhand,Hill Station,North Mountains,November,11,6.3,32.0,2,0,5.11
+Mussoorie,Uttarakhand,Hill Station,North Mountains,December,12,5.0,32.0,2,0,4.79
+Nainital,Uttarakhand,Hill Station,North Mountains,January,1,7.3,32.0,2,0,5.36
+Nainital,Uttarakhand,Hill Station,North Mountains,February,2,11.0,32.0,2,0,6.29
+Nainital,Uttarakhand,Hill Station,North Mountains,March,3,16.0,32.0,2,1,9.79
+Nainital,Uttarakhand,Hill Station,North Mountains,April,4,21.0,32.0,2,1,9.79
+Nainital,Uttarakhand,Hill Station,North Mountains,May,5,24.7,32.0,2,1,9.79
+Nainital,Uttarakhand,Hill Station,North Mountains,June,6,26.0,160.0,2,1,8.93
+Nainital,Uttarakhand,Hill Station,North Mountains,July,7,24.7,160.0,2,0,7.93
+Nainital,Uttarakhand,Hill Station,North Mountains,August,8,21.0,160.0,2,0,7.93
+Nainital,Uttarakhand,Hill Station,North Mountains,September,9,16.0,160.0,2,1,8.93
+Nainital,Uttarakhand,Hill Station,North Mountains,October,10,11.0,32.0,2,1,7.29
+Nainital,Uttarakhand,Hill Station,North Mountains,November,11,7.3,32.0,2,1,6.36
+Nainital,Uttarakhand,Hill Station,North Mountains,December,12,6.0,32.0,2,0,5.04
+Coorg,Karnataka,Hill Station,South Mountains,January,1,14.8,38.0,2,1,8.2
+Coorg,Karnataka,Hill Station,South Mountains,February,2,17.0,38.0,2,1,9.75
+Coorg,Karnataka,Hill Station,South Mountains,March,3,20.0,38.0,2,1,9.75
+Coorg,Karnataka,Hill Station,South Mountains,April,4,23.0,38.0,2,0,8.75
+Coorg,Karnataka,Hill Station,South Mountains,May,5,25.2,38.0,2,0,8.75
+Coorg,Karnataka,Hill Station,South Mountains,June,6,26.0,230.0,2,0,7.47
+Coorg,Karnataka,Hill Station,South Mountains,July,7,25.2,230.0,2,0,7.47
+Coorg,Karnataka,Hill Station,South Mountains,August,8,23.0,230.0,2,0,7.47
+Coorg,Karnataka,Hill Station,South Mountains,September,9,20.0,230.0,2,1,8.47
+Coorg,Karnataka,Hill Station,South Mountains,October,10,17.0,38.0,2,1,9.75
+Coorg,Karnataka,Hill Station,South Mountains,November,11,14.8,38.0,2,1,8.2
+Coorg,Karnataka,Hill Station,South Mountains,December,12,14.0,38.0,2,1,8.0
+Goa,Goa,Beach,West Coast,January,1,23.5,36.5,2,1,9.76
+Goa,Goa,Beach,West Coast,February,2,25.0,36.5,2,1,9.76
+Goa,Goa,Beach,West Coast,March,3,27.0,36.5,2,0,8.76
+Goa,Goa,Beach,West Coast,April,4,29.0,36.5,2,0,6.76
+Goa,Goa,Beach,West Coast,May,5,30.5,36.5,2,0,6.38
+Goa,Goa,Beach,West Coast,June,6,31.0,212.5,2,0,5.08
+Goa,Goa,Beach,West Coast,July,7,30.5,212.5,2,0,5.21
+Goa,Goa,Beach,West Coast,August,8,29.0,212.5,2,0,5.58
+Goa,Goa,Beach,West Coast,September,9,27.0,212.5,2,0,7.58
+Goa,Goa,Beach,West Coast,October,10,25.0,36.5,2,0,8.76
+Goa,Goa,Beach,West Coast,November,11,23.5,36.5,2,1,9.76
+Goa,Goa,Beach,West Coast,December,12,23.0,36.5,2,1,9.76
+Kovalam,Kerala,Beach,South Coast,January,1,25.4,110.0,2,1,9.27
+Kovalam,Kerala,Beach,South Coast,February,2,26.5,110.0,2,1,9.27
+Kovalam,Kerala,Beach,South Coast,March,3,28.0,110.0,2,1,9.27
+Kovalam,Kerala,Beach,South Coast,April,4,29.5,110.0,2,0,6.14
+Kovalam,Kerala,Beach,South Coast,May,5,30.6,110.0,2,0,5.87
+Kovalam,Kerala,Beach,South Coast,June,6,31.0,195.0,2,0,5.2
+Kovalam,Kerala,Beach,South Coast,July,7,30.6,195.0,2,0,5.3
+Kovalam,Kerala,Beach,South Coast,August,8,29.5,195.0,2,0,5.58
+Kovalam,Kerala,Beach,South Coast,September,9,28.0,195.0,2,0,7.7
+Kovalam,Kerala,Beach,South Coast,October,10,26.5,110.0,2,0,8.27
+Kovalam,Kerala,Beach,South Coast,November,11,25.4,110.0,2,1,9.27
+Kovalam,Kerala,Beach,South Coast,December,12,25.0,110.0,2,1,9.27
+Gokarna,Karnataka,Beach,West Coast,January,1,23.5,35.0,1,1,9.77
+Gokarna,Karnataka,Beach,West Coast,February,2,25.0,35.0,1,1,9.77
+Gokarna,Karnataka,Beach,West Coast,March,3,27.0,35.0,1,0,8.77
+Gokarna,Karnataka,Beach,West Coast,April,4,29.0,35.0,1,0,6.77
+Gokarna,Karnataka,Beach,West Coast,May,5,30.5,35.0,1,0,6.39
+Gokarna,Karnataka,Beach,West Coast,June,6,31.0,195.0,1,0,5.2
+Gokarna,Karnataka,Beach,West Coast,July,7,30.5,195.0,1,0,5.32
+Gokarna,Karnataka,Beach,West Coast,August,8,29.0,195.0,1,0,5.7
+Gokarna,Karnataka,Beach,West Coast,September,9,27.0,195.0,1,0,7.7
+Gokarna,Karnataka,Beach,West Coast,October,10,25.0,35.0,1,1,9.77
+Gokarna,Karnataka,Beach,West Coast,November,11,23.5,35.0,1,1,9.77
+Gokarna,Karnataka,Beach,West Coast,December,12,23.0,35.0,1,1,9.77
+Puri,Odisha,Beach,East Coast,January,1,21.8,32.0,1,1,9.79
+Puri,Odisha,Beach,East Coast,February,2,24.0,32.0,1,1,9.79
+Puri,Odisha,Beach,East Coast,March,3,27.0,32.0,1,0,8.79
+Puri,Odisha,Beach,East Coast,April,4,30.0,32.0,1,0,6.54
+Puri,Odisha,Beach,East Coast,May,5,32.2,32.0,1,0,5.99
+Puri,Odisha,Beach,East Coast,June,6,33.0,160.0,1,0,4.93
+Puri,Odisha,Beach,East Coast,July,7,32.2,160.0,1,0,5.13
+Puri,Odisha,Beach,East Coast,August,8,30.0,160.0,1,0,5.68
+Puri,Odisha,Beach,East Coast,September,9,27.0,160.0,1,0,7.93
+Puri,Odisha,Beach,East Coast,October,10,24.0,92.0,1,1,9.39
+Puri,Odisha,Beach,East Coast,November,11,21.8,92.0,1,1,9.39
+Puri,Odisha,Beach,East Coast,December,12,21.0,32.0,1,1,9.79
+Andaman Islands,Andaman & Nicobar,Beach,Islands,January,1,24.4,30.5,3,1,9.8
+Andaman Islands,Andaman & Nicobar,Beach,Islands,February,2,25.5,30.5,3,1,9.8
+Andaman Islands,Andaman & Nicobar,Beach,Islands,March,3,27.0,30.5,3,1,9.8
+Andaman Islands,Andaman & Nicobar,Beach,Islands,April,4,28.5,30.5,3,1,7.92
+Andaman Islands,Andaman & Nicobar,Beach,Islands,May,5,29.6,30.5,3,0,6.65
+Andaman Islands,Andaman & Nicobar,Beach,Islands,June,6,30.0,142.5,3,0,5.8
+Andaman Islands,Andaman & Nicobar,Beach,Islands,July,7,29.6,142.5,3,0,5.9
+Andaman Islands,Andaman & Nicobar,Beach,Islands,August,8,28.5,142.5,3,0,6.18
+Andaman Islands,Andaman & Nicobar,Beach,Islands,September,9,27.0,142.5,3,0,8.05
+Andaman Islands,Andaman & Nicobar,Beach,Islands,October,10,25.5,30.5,3,0,8.8
+Andaman Islands,Andaman & Nicobar,Beach,Islands,November,11,24.4,30.5,3,1,9.8
+Andaman Islands,Andaman & Nicobar,Beach,Islands,December,12,24.0,30.5,3,1,9.8
+Varkala,Kerala,Beach,South Coast,January,1,25.4,110.0,2,1,9.27
+Varkala,Kerala,Beach,South Coast,February,2,26.5,110.0,2,1,9.27
+Varkala,Kerala,Beach,South Coast,March,3,28.0,110.0,2,1,9.27
+Varkala,Kerala,Beach,South Coast,April,4,29.5,110.0,2,0,6.14
+Varkala,Kerala,Beach,South Coast,May,5,30.6,110.0,2,0,5.87
+Varkala,Kerala,Beach,South Coast,June,6,31.0,195.0,2,0,5.2
+Varkala,Kerala,Beach,South Coast,July,7,30.6,195.0,2,0,5.3
+Varkala,Kerala,Beach,South Coast,August,8,29.5,195.0,2,0,5.58
+Varkala,Kerala,Beach,South Coast,September,9,28.0,195.0,2,0,7.7
+Varkala,Kerala,Beach,South Coast,October,10,26.5,110.0,2,0,8.27
+Varkala,Kerala,Beach,South Coast,November,11,25.4,110.0,2,1,9.27
+Varkala,Kerala,Beach,South Coast,December,12,25.0,110.0,2,1,9.27
+Diu,Daman & Diu,Beach,West Coast,January,1,22.7,32.0,1,1,9.79
+Diu,Daman & Diu,Beach,West Coast,February,2,24.5,32.0,1,1,9.79
+Diu,Daman & Diu,Beach,West Coast,March,3,27.0,32.0,1,1,9.79
+Diu,Daman & Diu,Beach,West Coast,April,4,29.5,32.0,1,0,6.66
+Diu,Daman & Diu,Beach,West Coast,May,5,31.3,32.0,1,0,6.21
+Diu,Daman & Diu,Beach,West Coast,June,6,32.0,160.0,1,0,5.18
+Diu,Daman & Diu,Beach,West Coast,July,7,31.3,160.0,1,0,5.36
+Diu,Daman & Diu,Beach,West Coast,August,8,29.5,160.0,1,0,5.81
+Diu,Daman & Diu,Beach,West Coast,September,9,27.0,160.0,1,0,7.93
+Diu,Daman & Diu,Beach,West Coast,October,10,24.5,32.0,1,1,9.79
+Diu,Daman & Diu,Beach,West Coast,November,11,22.7,32.0,1,1,9.79
+Diu,Daman & Diu,Beach,West Coast,December,12,22.0,32.0,1,1,9.79
+Mahabalipuram,Tamil Nadu,Beach,South Coast,January,1,24.5,92.0,1,1,9.39
+Mahabalipuram,Tamil Nadu,Beach,South Coast,February,2,26.0,92.0,1,1,9.39
+Mahabalipuram,Tamil Nadu,Beach,South Coast,March,3,28.0,92.0,1,0,8.39
+Mahabalipuram,Tamil Nadu,Beach,South Coast,April,4,30.0,92.0,1,0,6.14
+Mahabalipuram,Tamil Nadu,Beach,South Coast,May,5,31.5,92.0,1,0,5.76
+Mahabalipuram,Tamil Nadu,Beach,South Coast,June,6,32.0,160.0,1,0,5.18
+Mahabalipuram,Tamil Nadu,Beach,South Coast,July,7,31.5,160.0,1,0,5.31
+Mahabalipuram,Tamil Nadu,Beach,South Coast,August,8,30.0,160.0,1,0,5.68
+Mahabalipuram,Tamil Nadu,Beach,South Coast,September,9,28.0,160.0,1,0,7.93
+Mahabalipuram,Tamil Nadu,Beach,South Coast,October,10,26.0,92.0,1,0,8.39
+Mahabalipuram,Tamil Nadu,Beach,South Coast,November,11,24.5,92.0,1,1,9.39
+Mahabalipuram,Tamil Nadu,Beach,South Coast,December,12,24.0,92.0,1,1,9.39
+Jaipur,Rajasthan,Heritage,North Plains/Desert,January,1,12.0,24.5,2,1,7.59
+Jaipur,Rajasthan,Heritage,North Plains/Desert,February,2,17.5,24.5,2,1,9.84
+Jaipur,Rajasthan,Heritage,North Plains/Desert,March,3,25.0,24.5,2,1,9.84
+Jaipur,Rajasthan,Heritage,North Plains/Desert,April,4,32.5,24.5,2,0,5.96
+Jaipur,Rajasthan,Heritage,North Plains/Desert,May,5,38.0,24.5,2,0,4.59
+Jaipur,Rajasthan,Heritage,North Plains/Desert,June,6,40.0,72.5,2,0,3.77
+Jaipur,Rajasthan,Heritage,North Plains/Desert,July,7,38.0,72.5,2,0,4.27
+Jaipur,Rajasthan,Heritage,North Plains/Desert,August,8,32.5,72.5,2,0,5.64
+Jaipur,Rajasthan,Heritage,North Plains/Desert,September,9,25.0,72.5,2,0,8.52
+Jaipur,Rajasthan,Heritage,North Plains/Desert,October,10,17.5,24.5,2,1,9.84
+Jaipur,Rajasthan,Heritage,North Plains/Desert,November,11,12.0,24.5,2,1,7.59
+Jaipur,Rajasthan,Heritage,North Plains/Desert,December,12,10.0,24.5,2,1,7.09
+Udaipur,Rajasthan,Heritage,North Plains/Desert,January,1,13.7,26.0,2,1,8.0
+Udaipur,Rajasthan,Heritage,North Plains/Desert,February,2,18.5,26.0,2,1,9.83
+Udaipur,Rajasthan,Heritage,North Plains/Desert,March,3,25.0,26.0,2,1,9.83
+Udaipur,Rajasthan,Heritage,North Plains/Desert,April,4,31.5,26.0,2,0,6.2
+Udaipur,Rajasthan,Heritage,North Plains/Desert,May,5,36.3,26.0,2,0,5.0
+Udaipur,Rajasthan,Heritage,North Plains/Desert,June,6,38.0,90.0,2,0,4.15
+Udaipur,Rajasthan,Heritage,North Plains/Desert,July,7,36.3,90.0,2,0,4.58
+Udaipur,Rajasthan,Heritage,North Plains/Desert,August,8,31.5,90.0,2,0,5.78
+Udaipur,Rajasthan,Heritage,North Plains/Desert,September,9,25.0,90.0,2,0,8.4
+Udaipur,Rajasthan,Heritage,North Plains/Desert,October,10,18.5,26.0,2,1,9.83
+Udaipur,Rajasthan,Heritage,North Plains/Desert,November,11,13.7,26.0,2,1,8.0
+Udaipur,Rajasthan,Heritage,North Plains/Desert,December,12,12.0,26.0,2,1,7.58
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,January,1,12.1,21.5,2,1,7.63
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,February,2,18.0,21.5,2,1,9.86
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,March,3,26.0,21.5,2,0,8.86
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,April,4,34.0,21.5,2,0,5.61
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,May,5,39.9,21.5,2,0,4.13
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,June,6,42.0,37.5,2,0,3.5
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,July,7,39.9,37.5,2,0,4.03
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,August,8,34.0,37.5,2,0,5.5
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,September,9,26.0,37.5,2,0,8.75
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,October,10,18.0,21.5,2,0,8.86
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,November,11,12.1,21.5,2,1,7.63
+Jaisalmer,Rajasthan,Heritage,North Plains/Desert,December,12,10.0,21.5,2,1,7.11
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,January,1,13.0,23.0,2,1,7.85
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,February,2,18.5,23.0,2,1,9.85
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,March,3,26.0,23.0,2,1,9.85
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,April,4,33.5,23.0,2,0,5.72
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,May,5,39.0,23.0,2,0,4.35
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,June,6,41.0,55.0,2,0,3.63
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,July,7,39.0,55.0,2,0,4.13
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,August,8,33.5,55.0,2,0,5.51
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,September,9,26.0,55.0,2,0,8.63
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,October,10,18.5,23.0,2,1,9.85
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,November,11,13.0,23.0,2,1,7.85
+Jodhpur,Rajasthan,Heritage,North Plains/Desert,December,12,11.0,23.0,2,1,7.35
+Agra,Uttar Pradesh,Heritage,North Plains,January,1,11.1,27.5,2,1,7.34
+Agra,Uttar Pradesh,Heritage,North Plains,February,2,17.0,27.5,2,1,9.82
+Agra,Uttar Pradesh,Heritage,North Plains,March,3,25.0,27.5,2,1,9.82
+Agra,Uttar Pradesh,Heritage,North Plains,April,4,33.0,27.5,2,0,5.82
+Agra,Uttar Pradesh,Heritage,North Plains,May,5,38.9,27.5,2,0,4.34
+Agra,Uttar Pradesh,Heritage,North Plains,June,6,41.0,107.5,2,0,3.28
+Agra,Uttar Pradesh,Heritage,North Plains,July,7,38.9,107.5,2,0,3.81
+Agra,Uttar Pradesh,Heritage,North Plains,August,8,33.0,107.5,2,0,5.28
+Agra,Uttar Pradesh,Heritage,North Plains,September,9,25.0,107.5,2,0,8.28
+Agra,Uttar Pradesh,Heritage,North Plains,October,10,17.0,27.5,2,1,9.82
+Agra,Uttar Pradesh,Heritage,North Plains,November,11,11.1,27.5,2,1,7.34
+Agra,Uttar Pradesh,Heritage,North Plains,December,12,9.0,27.5,2,1,6.82
+Varanasi,Uttar Pradesh,Heritage,North Plains,January,1,13.9,30.5,1,1,8.02
+Varanasi,Uttar Pradesh,Heritage,North Plains,February,2,19.0,30.5,1,1,9.8
+Varanasi,Uttar Pradesh,Heritage,North Plains,March,3,26.0,30.5,1,1,9.8
+Varanasi,Uttar Pradesh,Heritage,North Plains,April,4,33.0,30.5,1,0,5.8
+Varanasi,Uttar Pradesh,Heritage,North Plains,May,5,38.1,30.5,1,0,4.52
+Varanasi,Uttar Pradesh,Heritage,North Plains,June,6,40.0,142.5,1,0,3.3
+Varanasi,Uttar Pradesh,Heritage,North Plains,July,7,38.1,142.5,1,0,3.77
+Varanasi,Uttar Pradesh,Heritage,North Plains,August,8,33.0,142.5,1,0,5.05
+Varanasi,Uttar Pradesh,Heritage,North Plains,September,9,26.0,142.5,1,0,8.05
+Varanasi,Uttar Pradesh,Heritage,North Plains,October,10,19.0,30.5,1,1,9.8
+Varanasi,Uttar Pradesh,Heritage,North Plains,November,11,13.9,30.5,1,1,8.02
+Varanasi,Uttar Pradesh,Heritage,North Plains,December,12,12.0,30.5,1,1,7.55
+Hampi,Karnataka,Heritage,South Deccan,January,1,21.8,27.5,1,1,9.82
+Hampi,Karnataka,Heritage,South Deccan,February,2,24.0,27.5,1,1,9.82
+Hampi,Karnataka,Heritage,South Deccan,March,3,27.0,27.5,1,0,8.82
+Hampi,Karnataka,Heritage,South Deccan,April,4,30.0,27.5,1,0,6.57
+Hampi,Karnataka,Heritage,South Deccan,May,5,32.2,27.5,1,0,6.02
+Hampi,Karnataka,Heritage,South Deccan,June,6,33.0,107.5,1,0,5.28
+Hampi,Karnataka,Heritage,South Deccan,July,7,32.2,107.5,1,0,5.48
+Hampi,Karnataka,Heritage,South Deccan,August,8,30.0,107.5,1,0,6.03
+Hampi,Karnataka,Heritage,South Deccan,September,9,27.0,107.5,1,0,8.28
+Hampi,Karnataka,Heritage,South Deccan,October,10,24.0,27.5,1,1,9.82
+Hampi,Karnataka,Heritage,South Deccan,November,11,21.8,27.5,1,1,9.82
+Hampi,Karnataka,Heritage,South Deccan,December,12,21.0,27.5,1,1,9.82
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,January,1,12.9,29.0,2,1,7.78
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,February,2,18.0,29.0,2,1,9.81
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,March,3,25.0,29.0,2,1,9.81
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,April,4,32.0,29.0,2,0,6.06
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,May,5,37.1,29.0,2,0,4.78
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,June,6,39.0,125.0,2,0,3.67
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,July,7,37.1,125.0,2,0,4.14
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,August,8,32.0,125.0,2,0,5.42
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,September,9,25.0,125.0,2,0,8.17
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,October,10,18.0,29.0,2,1,9.81
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,November,11,12.9,29.0,2,1,7.78
+Khajuraho,Madhya Pradesh,Heritage,Central Plains,December,12,11.0,29.0,2,1,7.31
+Mysore,Karnataka,Heritage,South Deccan,January,1,19.7,32.0,1,1,9.79
+Mysore,Karnataka,Heritage,South Deccan,February,2,21.5,32.0,1,1,9.79
+Mysore,Karnataka,Heritage,South Deccan,March,3,24.0,32.0,1,0,8.79
+Mysore,Karnataka,Heritage,South Deccan,April,4,26.5,32.0,1,0,8.79
+Mysore,Karnataka,Heritage,South Deccan,May,5,28.3,32.0,1,0,6.96
+Mysore,Karnataka,Heritage,South Deccan,June,6,29.0,160.0,1,0,5.93
+Mysore,Karnataka,Heritage,South Deccan,July,7,28.3,160.0,1,0,6.11
+Mysore,Karnataka,Heritage,South Deccan,August,8,26.5,160.0,1,0,7.93
+Mysore,Karnataka,Heritage,South Deccan,September,9,24.0,160.0,1,1,8.93
+Mysore,Karnataka,Heritage,South Deccan,October,10,21.5,32.0,1,1,9.79
+Mysore,Karnataka,Heritage,South Deccan,November,11,19.7,32.0,1,1,9.79
+Mysore,Karnataka,Heritage,South Deccan,December,12,19.0,32.0,1,1,9.79
+Amritsar,Punjab,Heritage,North Plains,January,1,10.1,29.0,1,0,6.08
+Amritsar,Punjab,Heritage,North Plains,February,2,16.0,29.0,1,1,9.81
+Amritsar,Punjab,Heritage,North Plains,March,3,24.0,29.0,1,1,9.81
+Amritsar,Punjab,Heritage,North Plains,April,4,32.0,29.0,1,0,6.06
+Amritsar,Punjab,Heritage,North Plains,May,5,37.9,29.0,1,0,4.58
+Amritsar,Punjab,Heritage,North Plains,June,6,40.0,125.0,1,0,3.42
+Amritsar,Punjab,Heritage,North Plains,July,7,37.9,125.0,1,0,3.94
+Amritsar,Punjab,Heritage,North Plains,August,8,32.0,125.0,1,0,5.42
+Amritsar,Punjab,Heritage,North Plains,September,9,24.0,125.0,1,0,8.17
+Amritsar,Punjab,Heritage,North Plains,October,10,16.0,29.0,1,1,9.81
+Amritsar,Punjab,Heritage,North Plains,November,11,10.1,29.0,1,1,7.08
+Amritsar,Punjab,Heritage,North Plains,December,12,8.0,29.0,1,1,6.56
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,January,1,8.6,32.0,1,0,5.69
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,February,2,13.0,32.0,1,0,6.79
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,March,3,19.0,32.0,1,1,9.79
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,April,4,25.0,32.0,1,1,9.79
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,May,5,29.4,32.0,1,1,7.69
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,June,6,31.0,160.0,1,0,5.43
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,July,7,29.4,160.0,1,0,5.83
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,August,8,25.0,160.0,1,0,7.93
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,September,9,19.0,160.0,1,1,8.93
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,October,10,13.0,32.0,1,1,7.79
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,November,11,8.6,32.0,1,1,6.69
+Rishikesh,Uttarakhand,Spiritual/Adventure,North Mountains,December,12,7.0,32.0,1,0,5.29
+Haridwar,Uttarakhand,Spiritual,North Plains,January,1,11.0,32.0,1,0,6.29
+Haridwar,Uttarakhand,Spiritual,North Plains,February,2,16.5,32.0,1,1,9.79
+Haridwar,Uttarakhand,Spiritual,North Plains,March,3,24.0,32.0,1,1,9.79
+Haridwar,Uttarakhand,Spiritual,North Plains,April,4,31.5,32.0,1,0,6.16
+Haridwar,Uttarakhand,Spiritual,North Plains,May,5,37.0,32.0,1,0,4.79
+Haridwar,Uttarakhand,Spiritual,North Plains,June,6,39.0,160.0,1,0,3.43
+Haridwar,Uttarakhand,Spiritual,North Plains,July,7,37.0,160.0,1,0,3.93
+Haridwar,Uttarakhand,Spiritual,North Plains,August,8,31.5,160.0,1,0,5.31
+Haridwar,Uttarakhand,Spiritual,North Plains,September,9,24.0,160.0,1,0,7.93
+Haridwar,Uttarakhand,Spiritual,North Plains,October,10,16.5,32.0,1,1,9.79
+Haridwar,Uttarakhand,Spiritual,North Plains,November,11,11.0,32.0,1,1,7.29
+Haridwar,Uttarakhand,Spiritual,North Plains,December,12,9.0,32.0,1,1,6.79
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,January,1,12.0,23.0,1,1,7.6
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,February,2,17.5,23.0,1,1,9.85
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,March,3,25.0,23.0,1,0,8.85
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,April,4,32.5,23.0,1,0,5.97
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,May,5,38.0,23.0,1,0,4.6
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,June,6,40.0,55.0,1,0,3.88
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,July,7,38.0,55.0,1,0,4.38
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,August,8,32.5,55.0,1,0,5.76
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,September,9,25.0,55.0,1,0,8.63
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,October,10,17.5,23.0,1,1,9.85
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,November,11,12.0,23.0,1,1,7.6
+Pushkar,Rajasthan,Spiritual,North Plains/Desert,December,12,10.0,23.0,1,1,7.1
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,January,1,22.8,30.5,1,1,9.8
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,February,2,25.0,30.5,1,1,9.8
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,March,3,28.0,30.5,1,0,8.8
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,April,4,31.0,30.5,1,0,6.3
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,May,5,33.2,30.5,1,0,5.75
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,June,6,34.0,142.5,1,0,4.8
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,July,7,33.2,142.5,1,0,5.0
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,August,8,31.0,142.5,1,0,5.55
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,September,9,28.0,142.5,1,0,8.05
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,October,10,25.0,30.5,1,1,9.8
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,November,11,22.8,30.5,1,1,9.8
+Tirupati,Andhra Pradesh,Spiritual,South Deccan,December,12,22.0,30.5,1,1,9.8
+Bodh Gaya,Bihar,Spiritual,East Plains,January,1,13.9,32.0,1,1,8.01
+Bodh Gaya,Bihar,Spiritual,East Plains,February,2,19.0,32.0,1,1,9.79
+Bodh Gaya,Bihar,Spiritual,East Plains,March,3,26.0,32.0,1,0,8.79
+Bodh Gaya,Bihar,Spiritual,East Plains,April,4,33.0,32.0,1,0,5.79
+Bodh Gaya,Bihar,Spiritual,East Plains,May,5,38.1,32.0,1,0,4.51
+Bodh Gaya,Bihar,Spiritual,East Plains,June,6,40.0,160.0,1,0,3.18
+Bodh Gaya,Bihar,Spiritual,East Plains,July,7,38.1,160.0,1,0,3.66
+Bodh Gaya,Bihar,Spiritual,East Plains,August,8,33.0,160.0,1,0,4.93
+Bodh Gaya,Bihar,Spiritual,East Plains,September,9,26.0,160.0,1,0,7.93
+Bodh Gaya,Bihar,Spiritual,East Plains,October,10,19.0,92.0,1,1,9.39
+Bodh Gaya,Bihar,Spiritual,East Plains,November,11,13.9,92.0,1,1,7.61
+Bodh Gaya,Bihar,Spiritual,East Plains,December,12,12.0,32.0,1,1,7.54
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,January,1,-8.0,27.5,2,0,2.82
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,February,2,-2.5,27.5,2,0,2.94
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,March,3,5.0,27.5,2,0,4.82
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,April,4,12.5,27.5,2,0,6.69
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,May,5,18.0,27.5,2,0,8.82
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,June,6,20.0,107.5,2,0,8.28
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,July,7,18.0,107.5,2,1,9.28
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,August,8,12.5,107.5,2,1,7.16
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,September,9,5.0,107.5,2,0,4.28
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,October,10,-2.5,27.5,2,0,2.94
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,November,11,-8.0,27.5,2,0,2.82
+Amarnath,Jammu & Kashmir,Spiritual/Adventure,North Mountains,December,12,-10.0,27.5,2,0,2.82
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,January,1,13.0,24.5,2,1,7.84
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,February,2,18.5,24.5,2,1,9.84
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,March,3,26.0,24.5,2,1,9.84
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,April,4,33.5,24.5,2,0,5.71
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,May,5,39.0,24.5,2,0,4.34
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,June,6,41.0,72.5,2,0,3.52
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,July,7,39.0,72.5,2,0,4.02
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,August,8,33.5,72.5,2,0,5.39
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,September,9,26.0,72.5,2,0,8.52
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,October,10,18.5,24.5,2,1,9.84
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,November,11,13.0,24.5,2,1,7.84
+Ranthambore,Rajasthan,Wildlife,North Plains/Desert,December,12,11.0,24.5,2,1,7.34
+Jim Corbett,Uttarakhand,Wildlife,North Plains,January,1,10.9,32.0,2,1,7.26
+Jim Corbett,Uttarakhand,Wildlife,North Plains,February,2,16.0,32.0,2,1,9.79
+Jim Corbett,Uttarakhand,Wildlife,North Plains,March,3,23.0,32.0,2,1,9.79
+Jim Corbett,Uttarakhand,Wildlife,North Plains,April,4,30.0,32.0,2,1,7.54
+Jim Corbett,Uttarakhand,Wildlife,North Plains,May,5,35.1,32.0,2,0,5.26
+Jim Corbett,Uttarakhand,Wildlife,North Plains,June,6,37.0,160.0,2,0,3.93
+Jim Corbett,Uttarakhand,Wildlife,North Plains,July,7,35.1,160.0,2,0,4.41
+Jim Corbett,Uttarakhand,Wildlife,North Plains,August,8,30.0,160.0,2,0,5.68
+Jim Corbett,Uttarakhand,Wildlife,North Plains,September,9,23.0,160.0,2,0,7.93
+Jim Corbett,Uttarakhand,Wildlife,North Plains,October,10,16.0,32.0,2,0,8.79
+Jim Corbett,Uttarakhand,Wildlife,North Plains,November,11,10.9,32.0,2,1,7.26
+Jim Corbett,Uttarakhand,Wildlife,North Plains,December,12,9.0,32.0,2,1,6.79
+Kaziranga,Assam,Wildlife,East Plains,January,1,15.3,41.0,2,1,9.73
+Kaziranga,Assam,Wildlife,East Plains,February,2,19.0,41.0,2,1,9.73
+Kaziranga,Assam,Wildlife,East Plains,March,3,24.0,41.0,2,1,9.73
+Kaziranga,Assam,Wildlife,East Plains,April,4,29.0,41.0,2,0,6.73
+Kaziranga,Assam,Wildlife,East Plains,May,5,32.7,41.0,2,0,5.8
+Kaziranga,Assam,Wildlife,East Plains,June,6,34.0,265.0,2,0,3.98
+Kaziranga,Assam,Wildlife,East Plains,July,7,32.7,265.0,2,0,4.31
+Kaziranga,Assam,Wildlife,East Plains,August,8,29.0,265.0,2,0,5.23
+Kaziranga,Assam,Wildlife,East Plains,September,9,24.0,265.0,2,0,7.23
+Kaziranga,Assam,Wildlife,East Plains,October,10,19.0,146.0,2,0,8.03
+Kaziranga,Assam,Wildlife,East Plains,November,11,15.3,146.0,2,1,9.03
+Kaziranga,Assam,Wildlife,East Plains,December,12,14.0,41.0,2,1,7.98
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,January,1,12.0,30.5,2,1,7.55
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,February,2,17.5,30.5,2,1,9.8
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,March,3,25.0,30.5,2,1,9.8
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,April,4,32.5,30.5,2,0,5.92
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,May,5,38.0,30.5,2,0,4.55
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,June,6,40.0,142.5,2,0,3.3
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,July,7,38.0,142.5,2,0,3.8
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,August,8,32.5,142.5,2,0,5.18
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,September,9,25.0,142.5,2,0,8.05
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,October,10,17.5,30.5,2,1,9.8
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,November,11,12.0,30.5,2,1,7.55
+Bandhavgarh,Madhya Pradesh,Wildlife,Central Plains,December,12,10.0,30.5,2,1,7.05
+Periyar,Kerala,Wildlife,South Coast,January,1,18.7,137.0,2,1,9.09
+Periyar,Kerala,Wildlife,South Coast,February,2,20.5,137.0,2,1,9.09
+Periyar,Kerala,Wildlife,South Coast,March,3,23.0,137.0,2,0,8.09
+Periyar,Kerala,Wildlife,South Coast,April,4,25.5,137.0,2,0,8.09
+Periyar,Kerala,Wildlife,South Coast,May,5,27.3,137.0,2,0,8.09
+Periyar,Kerala,Wildlife,South Coast,June,6,28.0,247.5,2,0,7.35
+Periyar,Kerala,Wildlife,South Coast,July,7,27.3,247.5,2,0,7.35
+Periyar,Kerala,Wildlife,South Coast,August,8,25.5,247.5,2,0,7.35
+Periyar,Kerala,Wildlife,South Coast,September,9,23.0,247.5,2,1,8.35
+Periyar,Kerala,Wildlife,South Coast,October,10,20.5,137.0,2,1,9.09
+Periyar,Kerala,Wildlife,South Coast,November,11,18.7,137.0,2,1,9.09
+Periyar,Kerala,Wildlife,South Coast,December,12,18.0,137.0,2,1,9.09
+Gir Forest,Gujarat,Wildlife,West Plains,January,1,18.3,27.5,2,1,9.82
+Gir Forest,Gujarat,Wildlife,West Plains,February,2,22.0,27.5,2,1,9.82
+Gir Forest,Gujarat,Wildlife,West Plains,March,3,27.0,27.5,2,1,9.82
+Gir Forest,Gujarat,Wildlife,West Plains,April,4,32.0,27.5,2,0,6.07
+Gir Forest,Gujarat,Wildlife,West Plains,May,5,35.7,27.5,2,0,5.14
+Gir Forest,Gujarat,Wildlife,West Plains,June,6,37.0,107.5,2,0,4.28
+Gir Forest,Gujarat,Wildlife,West Plains,July,7,35.7,107.5,2,0,4.61
+Gir Forest,Gujarat,Wildlife,West Plains,August,8,32.0,107.5,2,0,5.53
+Gir Forest,Gujarat,Wildlife,West Plains,September,9,27.0,107.5,2,0,8.28
+Gir Forest,Gujarat,Wildlife,West Plains,October,10,22.0,27.5,2,0,8.82
+Gir Forest,Gujarat,Wildlife,West Plains,November,11,18.3,27.5,2,1,9.82
+Gir Forest,Gujarat,Wildlife,West Plains,December,12,17.0,27.5,2,1,9.82
+Mumbai,Maharashtra,City/Urban,West Coast,January,1,23.5,36.5,3,1,9.76
+Mumbai,Maharashtra,City/Urban,West Coast,February,2,25.0,36.5,3,1,9.76
+Mumbai,Maharashtra,City/Urban,West Coast,March,3,27.0,36.5,3,0,8.76
+Mumbai,Maharashtra,City/Urban,West Coast,April,4,29.0,36.5,3,0,6.76
+Mumbai,Maharashtra,City/Urban,West Coast,May,5,30.5,36.5,3,0,6.38
+Mumbai,Maharashtra,City/Urban,West Coast,June,6,31.0,212.5,3,0,5.08
+Mumbai,Maharashtra,City/Urban,West Coast,July,7,30.5,212.5,3,0,5.21
+Mumbai,Maharashtra,City/Urban,West Coast,August,8,29.0,212.5,3,0,5.58
+Mumbai,Maharashtra,City/Urban,West Coast,September,9,27.0,212.5,3,0,7.58
+Mumbai,Maharashtra,City/Urban,West Coast,October,10,25.0,36.5,3,0,8.76
+Mumbai,Maharashtra,City/Urban,West Coast,November,11,23.5,36.5,3,1,9.76
+Mumbai,Maharashtra,City/Urban,West Coast,December,12,23.0,36.5,3,1,9.76
+Delhi,Delhi,City/Urban,North Plains,January,1,9.4,29.0,2,0,5.91
+Delhi,Delhi,City/Urban,North Plains,February,2,16.0,29.0,2,1,9.81
+Delhi,Delhi,City/Urban,North Plains,March,3,25.0,29.0,2,1,9.81
+Delhi,Delhi,City/Urban,North Plains,April,4,34.0,29.0,2,0,5.56
+Delhi,Delhi,City/Urban,North Plains,May,5,40.6,29.0,2,0,3.91
+Delhi,Delhi,City/Urban,North Plains,June,6,43.0,125.0,2,0,2.67
+Delhi,Delhi,City/Urban,North Plains,July,7,40.6,125.0,2,0,3.27
+Delhi,Delhi,City/Urban,North Plains,August,8,34.0,125.0,2,0,4.92
+Delhi,Delhi,City/Urban,North Plains,September,9,25.0,125.0,2,0,8.17
+Delhi,Delhi,City/Urban,North Plains,October,10,16.0,29.0,2,1,9.81
+Delhi,Delhi,City/Urban,North Plains,November,11,9.4,29.0,2,1,6.91
+Delhi,Delhi,City/Urban,North Plains,December,12,7.0,29.0,2,0,5.31
+Bengaluru,Karnataka,City/Urban,South Deccan,January,1,20.5,32.0,2,1,9.79
+Bengaluru,Karnataka,City/Urban,South Deccan,February,2,22.0,32.0,2,1,9.79
+Bengaluru,Karnataka,City/Urban,South Deccan,March,3,24.0,32.0,2,1,9.79
+Bengaluru,Karnataka,City/Urban,South Deccan,April,4,26.0,32.0,2,0,8.79
+Bengaluru,Karnataka,City/Urban,South Deccan,May,5,27.5,32.0,2,0,8.79
+Bengaluru,Karnataka,City/Urban,South Deccan,June,6,28.0,160.0,2,0,7.93
+Bengaluru,Karnataka,City/Urban,South Deccan,July,7,27.5,160.0,2,0,7.93
+Bengaluru,Karnataka,City/Urban,South Deccan,August,8,26.0,160.0,2,0,7.93
+Bengaluru,Karnataka,City/Urban,South Deccan,September,9,24.0,160.0,2,1,8.93
+Bengaluru,Karnataka,City/Urban,South Deccan,October,10,22.0,32.0,2,1,9.79
+Bengaluru,Karnataka,City/Urban,South Deccan,November,11,20.5,32.0,2,1,9.79
+Bengaluru,Karnataka,City/Urban,South Deccan,December,12,20.0,32.0,2,1,9.79
+Kolkata,West Bengal,City/Urban,East Plains,January,1,20.1,35.0,2,1,9.77
+Kolkata,West Bengal,City/Urban,East Plains,February,2,23.0,35.0,2,1,9.77
+Kolkata,West Bengal,City/Urban,East Plains,March,3,27.0,35.0,2,0,8.77
+Kolkata,West Bengal,City/Urban,East Plains,April,4,31.0,35.0,2,0,6.27
+Kolkata,West Bengal,City/Urban,East Plains,May,5,33.9,35.0,2,0,5.54
+Kolkata,West Bengal,City/Urban,East Plains,June,6,35.0,195.0,2,0,4.2
+Kolkata,West Bengal,City/Urban,East Plains,July,7,33.9,195.0,2,0,4.48
+Kolkata,West Bengal,City/Urban,East Plains,August,8,31.0,195.0,2,0,5.2
+Kolkata,West Bengal,City/Urban,East Plains,September,9,27.0,195.0,2,0,7.7
+Kolkata,West Bengal,City/Urban,East Plains,October,10,23.0,110.0,2,1,9.27
+Kolkata,West Bengal,City/Urban,East Plains,November,11,20.1,110.0,2,1,9.27
+Kolkata,West Bengal,City/Urban,East Plains,December,12,19.0,35.0,2,1,9.77
+Chennai,Tamil Nadu,City/Urban,South Coast,January,1,25.5,101.0,2,1,9.33
+Chennai,Tamil Nadu,City/Urban,South Coast,February,2,27.0,101.0,2,0,8.33
+Chennai,Tamil Nadu,City/Urban,South Coast,March,3,29.0,101.0,2,0,6.33
+Chennai,Tamil Nadu,City/Urban,South Coast,April,4,31.0,101.0,2,0,5.83
+Chennai,Tamil Nadu,City/Urban,South Coast,May,5,32.5,101.0,2,0,5.45
+Chennai,Tamil Nadu,City/Urban,South Coast,June,6,33.0,177.5,2,0,4.82
+Chennai,Tamil Nadu,City/Urban,South Coast,July,7,32.5,177.5,2,0,4.94
+Chennai,Tamil Nadu,City/Urban,South Coast,August,8,31.0,177.5,2,0,5.32
+Chennai,Tamil Nadu,City/Urban,South Coast,September,9,29.0,177.5,2,0,5.82
+Chennai,Tamil Nadu,City/Urban,South Coast,October,10,27.0,101.0,2,0,8.33
+Chennai,Tamil Nadu,City/Urban,South Coast,November,11,25.5,101.0,2,1,9.33
+Chennai,Tamil Nadu,City/Urban,South Coast,December,12,25.0,101.0,2,1,9.33
+Hyderabad,Telangana,City/Urban,South Deccan,January,1,20.1,30.5,2,1,9.8
+Hyderabad,Telangana,City/Urban,South Deccan,February,2,23.0,30.5,2,1,9.8
+Hyderabad,Telangana,City/Urban,South Deccan,March,3,27.0,30.5,2,0,8.8
+Hyderabad,Telangana,City/Urban,South Deccan,April,4,31.0,30.5,2,0,6.3
+Hyderabad,Telangana,City/Urban,South Deccan,May,5,33.9,30.5,2,0,5.57
+Hyderabad,Telangana,City/Urban,South Deccan,June,6,35.0,142.5,2,0,4.55
+Hyderabad,Telangana,City/Urban,South Deccan,July,7,33.9,142.5,2,0,4.82
+Hyderabad,Telangana,City/Urban,South Deccan,August,8,31.0,142.5,2,0,5.55
+Hyderabad,Telangana,City/Urban,South Deccan,September,9,27.0,142.5,2,0,8.05
+Hyderabad,Telangana,City/Urban,South Deccan,October,10,23.0,30.5,2,1,9.8
+Hyderabad,Telangana,City/Urban,South Deccan,November,11,20.1,30.5,2,1,9.8
+Hyderabad,Telangana,City/Urban,South Deccan,December,12,19.0,30.5,2,1,9.8
+Pune,Maharashtra,City/Urban,South Deccan,January,1,18.8,33.5,2,1,9.78
+Pune,Maharashtra,City/Urban,South Deccan,February,2,21.0,33.5,2,1,9.78
+Pune,Maharashtra,City/Urban,South Deccan,March,3,24.0,33.5,2,0,8.78
+Pune,Maharashtra,City/Urban,South Deccan,April,4,27.0,33.5,2,0,8.78
+Pune,Maharashtra,City/Urban,South Deccan,May,5,29.2,33.5,2,0,6.73
+Pune,Maharashtra,City/Urban,South Deccan,June,6,30.0,177.5,2,0,5.57
+Pune,Maharashtra,City/Urban,South Deccan,July,7,29.2,177.5,2,0,5.77
+Pune,Maharashtra,City/Urban,South Deccan,August,8,27.0,177.5,2,0,7.82
+Pune,Maharashtra,City/Urban,South Deccan,September,9,24.0,177.5,2,0,7.82
+Pune,Maharashtra,City/Urban,South Deccan,October,10,21.0,33.5,2,1,9.78
+Pune,Maharashtra,City/Urban,South Deccan,November,11,18.8,33.5,2,1,9.78
+Pune,Maharashtra,City/Urban,South Deccan,December,12,18.0,33.5,2,1,9.78
+Ahmedabad,Gujarat,City/Urban,West Plains,January,1,16.6,29.0,2,1,9.81
+Ahmedabad,Gujarat,City/Urban,West Plains,February,2,21.0,29.0,2,1,9.81
+Ahmedabad,Gujarat,City/Urban,West Plains,March,3,27.0,29.0,2,0,8.81
+Ahmedabad,Gujarat,City/Urban,West Plains,April,4,33.0,29.0,2,0,5.81
+Ahmedabad,Gujarat,City/Urban,West Plains,May,5,37.4,29.0,2,0,4.71
+Ahmedabad,Gujarat,City/Urban,West Plains,June,6,39.0,125.0,2,0,3.67
+Ahmedabad,Gujarat,City/Urban,West Plains,July,7,37.4,125.0,2,0,4.07
+Ahmedabad,Gujarat,City/Urban,West Plains,August,8,33.0,125.0,2,0,5.17
+Ahmedabad,Gujarat,City/Urban,West Plains,September,9,27.0,125.0,2,0,8.17
+Ahmedabad,Gujarat,City/Urban,West Plains,October,10,21.0,29.0,2,0,8.81
+Ahmedabad,Gujarat,City/Urban,West Plains,November,11,16.6,29.0,2,1,9.81
+Ahmedabad,Gujarat,City/Urban,West Plains,December,12,15.0,29.0,2,1,9.81
+Alleppey,Kerala,Backwaters,South Coast,January,1,24.4,137.0,2,1,9.09
+Alleppey,Kerala,Backwaters,South Coast,February,2,25.5,137.0,2,1,9.09
+Alleppey,Kerala,Backwaters,South Coast,March,3,27.0,137.0,2,0,8.09
+Alleppey,Kerala,Backwaters,South Coast,April,4,28.5,137.0,2,0,6.21
+Alleppey,Kerala,Backwaters,South Coast,May,5,29.6,137.0,2,0,5.94
+Alleppey,Kerala,Backwaters,South Coast,June,6,30.0,247.5,2,0,5.1
+Alleppey,Kerala,Backwaters,South Coast,July,7,29.6,247.5,2,0,5.2
+Alleppey,Kerala,Backwaters,South Coast,August,8,28.5,247.5,2,0,5.48
+Alleppey,Kerala,Backwaters,South Coast,September,9,27.0,247.5,2,1,8.35
+Alleppey,Kerala,Backwaters,South Coast,October,10,25.5,137.0,2,1,9.09
+Alleppey,Kerala,Backwaters,South Coast,November,11,24.4,137.0,2,1,9.09
+Alleppey,Kerala,Backwaters,South Coast,December,12,24.0,137.0,2,1,9.09
+Kumarakom,Kerala,Backwaters,South Coast,January,1,24.4,137.0,2,1,9.09
+Kumarakom,Kerala,Backwaters,South Coast,February,2,25.5,137.0,2,1,9.09
+Kumarakom,Kerala,Backwaters,South Coast,March,3,27.0,137.0,2,0,8.09
+Kumarakom,Kerala,Backwaters,South Coast,April,4,28.5,137.0,2,0,6.21
+Kumarakom,Kerala,Backwaters,South Coast,May,5,29.6,137.0,2,0,5.94
+Kumarakom,Kerala,Backwaters,South Coast,June,6,30.0,247.5,2,0,5.1
+Kumarakom,Kerala,Backwaters,South Coast,July,7,29.6,247.5,2,0,5.2
+Kumarakom,Kerala,Backwaters,South Coast,August,8,28.5,247.5,2,0,5.48
+Kumarakom,Kerala,Backwaters,South Coast,September,9,27.0,247.5,2,1,8.35
+Kumarakom,Kerala,Backwaters,South Coast,October,10,25.5,137.0,2,1,9.09
+Kumarakom,Kerala,Backwaters,South Coast,November,11,24.4,137.0,2,1,9.09
+Kumarakom,Kerala,Backwaters,South Coast,December,12,24.0,137.0,2,1,9.09
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,January,1,0.0,26.0,3,0,3.58
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,February,2,5.5,26.0,3,0,4.95
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,March,3,13.0,26.0,3,0,6.83
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,April,4,20.5,26.0,3,1,9.83
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,May,5,26.0,26.0,3,1,9.83
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,June,6,28.0,90.0,3,1,9.4
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,July,7,26.0,90.0,3,0,8.4
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,August,8,20.5,90.0,3,0,8.4
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,September,9,13.0,90.0,3,1,7.4
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,October,10,5.5,26.0,3,1,5.95
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,November,11,0.0,26.0,3,0,3.58
+Srinagar,Jammu & Kashmir,Hill Station,North Mountains,December,12,-2.0,26.0,3,0,3.08
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,January,1,-5.1,26.0,3,1,3.83
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,February,2,0.0,26.0,3,1,4.58
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,March,3,7.0,26.0,3,0,5.33
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,April,4,14.0,26.0,3,1,8.08
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,May,5,19.1,26.0,3,1,9.83
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,June,6,21.0,90.0,3,1,9.4
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,July,7,19.1,90.0,3,0,8.4
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,August,8,14.0,90.0,3,0,6.65
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,September,9,7.0,90.0,3,0,4.9
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,October,10,0.0,26.0,3,0,3.58
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,November,11,-5.1,26.0,3,0,2.83
+Gulmarg,Jammu & Kashmir,Hill Station,North Mountains,December,12,-7.0,26.0,3,1,3.83
+Auli,Uttarakhand,Hill Station,North Mountains,January,1,-4.1,29.0,2,1,3.81
+Auli,Uttarakhand,Hill Station,North Mountains,February,2,1.0,29.0,2,1,4.81
+Auli,Uttarakhand,Hill Station,North Mountains,March,3,8.0,29.0,2,1,6.56
+Auli,Uttarakhand,Hill Station,North Mountains,April,4,15.0,29.0,2,1,9.81
+Auli,Uttarakhand,Hill Station,North Mountains,May,5,20.1,29.0,2,1,9.81
+Auli,Uttarakhand,Hill Station,North Mountains,June,6,22.0,125.0,2,0,8.17
+Auli,Uttarakhand,Hill Station,North Mountains,July,7,20.1,125.0,2,0,8.17
+Auli,Uttarakhand,Hill Station,North Mountains,August,8,15.0,125.0,2,0,8.17
+Auli,Uttarakhand,Hill Station,North Mountains,September,9,8.0,125.0,2,0,4.92
+Auli,Uttarakhand,Hill Station,North Mountains,October,10,1.0,29.0,2,0,3.81
+Auli,Uttarakhand,Hill Station,North Mountains,November,11,-4.1,29.0,2,0,2.81
+Auli,Uttarakhand,Hill Station,North Mountains,December,12,-6.0,29.0,2,1,3.81
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,January,1,-11.9,21.5,2,0,2.86
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,February,2,-6.0,21.5,2,0,2.86
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,March,3,2.0,21.5,2,0,4.11
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,April,4,10.0,21.5,2,0,6.11
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,May,5,15.9,21.5,2,0,8.86
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,June,6,18.0,37.5,2,1,9.75
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,July,7,15.9,37.5,2,1,9.75
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,August,8,10.0,37.5,2,1,7.0
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,September,9,2.0,37.5,2,1,5.0
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,October,10,-6.0,21.5,2,0,2.86
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,November,11,-11.9,21.5,2,0,2.86
+Spiti Valley,Himachal Pradesh,Hill Station/Adventure,North Mountains,December,12,-14.0,21.5,2,0,2.86
+Rann of Kutch,Gujarat,Desert,West Plains,January,1,14.0,21.5,2,1,8.11
+Rann of Kutch,Gujarat,Desert,West Plains,February,2,19.5,21.5,2,1,9.86
+Rann of Kutch,Gujarat,Desert,West Plains,March,3,27.0,21.5,2,0,8.86
+Rann of Kutch,Gujarat,Desert,West Plains,April,4,34.5,21.5,2,0,5.48
+Rann of Kutch,Gujarat,Desert,West Plains,May,5,40.0,21.5,2,0,4.11
+Rann of Kutch,Gujarat,Desert,West Plains,June,6,42.0,37.5,2,0,3.5
+Rann of Kutch,Gujarat,Desert,West Plains,July,7,40.0,37.5,2,0,4.0
+Rann of Kutch,Gujarat,Desert,West Plains,August,8,34.5,37.5,2,0,5.38
+Rann of Kutch,Gujarat,Desert,West Plains,September,9,27.0,37.5,2,0,8.75
+Rann of Kutch,Gujarat,Desert,West Plains,October,10,19.5,21.5,2,0,8.86
+Rann of Kutch,Gujarat,Desert,West Plains,November,11,14.0,21.5,2,1,8.11
+Rann of Kutch,Gujarat,Desert,West Plains,December,12,12.0,21.5,2,1,7.61
+Lakshadweep,Lakshadweep,Beach,Islands,January,1,25.4,32.0,3,1,9.79
+Lakshadweep,Lakshadweep,Beach,Islands,February,2,26.5,32.0,3,1,9.79
+Lakshadweep,Lakshadweep,Beach,Islands,March,3,28.0,32.0,3,1,9.79
+Lakshadweep,Lakshadweep,Beach,Islands,April,4,29.5,32.0,3,0,6.66
+Lakshadweep,Lakshadweep,Beach,Islands,May,5,30.6,32.0,3,0,6.39
+Lakshadweep,Lakshadweep,Beach,Islands,June,6,31.0,160.0,3,0,5.43
+Lakshadweep,Lakshadweep,Beach,Islands,July,7,30.6,160.0,3,0,5.53
+Lakshadweep,Lakshadweep,Beach,Islands,August,8,29.5,160.0,3,0,5.81
+Lakshadweep,Lakshadweep,Beach,Islands,September,9,28.0,160.0,3,0,7.93
+Lakshadweep,Lakshadweep,Beach,Islands,October,10,26.5,32.0,3,1,9.79
+Lakshadweep,Lakshadweep,Beach,Islands,November,11,25.4,32.0,3,1,9.79
+Lakshadweep,Lakshadweep,Beach,Islands,December,12,25.0,32.0,3,1,9.79
