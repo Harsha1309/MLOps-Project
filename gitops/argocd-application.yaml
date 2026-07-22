@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tourism-recommender
+  namespace: argocd
+spec:
+  project: default
+ 
+  source:
+    repoURL: https://github.com/Harsha1309/MLOps-Project.git
+    targetRevision: main
+    path: gitops/tourism-recommender
+ 
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: tourism-mlops
+ 
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

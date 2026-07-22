@@ -66,3 +66,57 @@ variable "node_disk_size" {
   type        = number
   default     = 20
 }
+
+variable "oidc_provider_arn" {
+  description = "EKS OIDC provider ARN, for IRSA. Leave blank until the cluster exists; role creation is skipped when empty."
+  type        = string
+  default     = ""
+}
+
+variable "oidc_provider_url" {
+  description = "EKS OIDC provider URL without https://, e.g. oidc.eks.ap-south-1.amazonaws.com/id/XXXX"
+  type        = string
+  default     = ""
+}
+
+variable "namespace" {
+  description = "K8s namespace whose service account will assume this role"
+  type        = string
+  default     = "tourism-mlops"
+}
+
+variable "service_account_name" {
+  description = "K8s service account name (used by training jobs + predictor pods)"
+  type        = string
+  default     = "tourism-dvc-sa"
+}
+
+variable "project_name" {
+  description = "Name prefix for resources"
+  type        = string
+  default     = "tourism-mlops"
+}
+
+
+variable "environment" {
+  description = "Environment tag (dev/staging/prod)"
+  type        = string
+  default     = "dev"
+}
+
+variable "ecr_repository_name" {
+  description = "Name of the ECR repository"
+  type        = string
+  default     = "india-tourism-api"
+}
+
+variable "github_org" {
+  description = "GitHub org/user that owns the repo (for OIDC trust policy)"
+  type        = string
+}
+
+variable "github_repo" {
+  description = "GitHub repo name (for OIDC trust policy)"
+  type        = string
+  default     = "india-tourism-api"
+}
