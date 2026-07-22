@@ -1,0 +1,27 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: tourism-recommender
+  namespace: tourism-mlops
+spec:
+  predictor:
+    serviceAccountName: tourism-dvc-sa
+    containers:
+      - name: kserve-container
+        image: 905418202149.dkr.ecr.us-west-2.amazonaws.com/india-tourism-api:latest
+        ports:
+          - containerPort: 8080
+            protocol: TCP
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+        readinessProbe:
+          httpGet:
+            path: /v1/models/tourism-recommender
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10

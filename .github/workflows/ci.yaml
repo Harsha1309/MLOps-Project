@@ -1,0 +1,125 @@
+name: CI - DVC Pipeline & Docker Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  dvc-pipeline:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # required for OIDC auth to AWS (S3 access for DVC remote)
+      contents: write   # required to commit dvc.lock back to the repo
+
+    env:
+      AWS_REGION: us-west-2
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install "dvc[s3]"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Pull cached data/models from DVC remote
+        run: dvc pull -f || true   # ok if nothing cached yet on first run
+
+      - name: Run DVC pipeline (build dataset + train)
+        run: dvc repro
+
+      - name: Push updated data/models to DVC remote
+        run: dvc push
+
+      - name: Show metrics
+        run: dvc metrics show
+
+      - name: Run smoke tests
+        run: python test_api.py
+
+      - name: Commit dvc.lock if changed
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add dvc.lock
+          git diff --staged --quiet || git commit -m "Update dvc.lock [skip ci]"
+          git push
+
+      - name: Upload model artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: trained-model
+          path: |
+            models/tourism_model.joblib
+            models/lookup_table.pkl
+            models/metrics.json
+
+  docker-build:
+    needs: dvc-pipeline
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    env:
+      AWS_REGION: us-west-2
+      ECR_REPOSITORY: india-tourism-api
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: india-tourism-api:${{ github.sha }}
+          load: true
+
+      - name: Smoke test the built image
+        run: |
+          docker run -d -p 8000:8000 --name tourism-api india-tourism-api:${{ github.sha }}
+          sleep 5
+          curl --fail http://localhost:8000/health
+          docker logs tourism-api
+          docker stop tourism-api
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: ecr-login
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Tag and push image to ECR
+        env:
+          ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+        run: |
+          docker tag india-tourism-api:${{ github.sha }} $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }}
+          docker tag india-tourism-api:${{ github.sha }} $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }}
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest

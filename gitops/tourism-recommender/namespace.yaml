@@ -1,0 +1,14 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tourism-mlops
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tourism-dvc-sa
+  namespace: tourism-mlops
+  annotations:
+    # Fill in after `terraform apply` in infrastructure/ (see dvc_irsa_role_arn output)
+    eks.amazonaws.com/role-arn: "REPLACE_WITH_dvc_irsa_role_arn_OUTPUT"
