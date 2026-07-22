@@ -1,0 +1,19 @@
+stages:
+  build_dataset:
+    cmd: python build_dataset.py
+    deps:
+      - build_dataset.py
+    outs:
+      - data/india_tourism.csv
+
+  train:
+    cmd: python train.py
+    deps:
+      - train.py
+      - data/india_tourism.csv
+    outs:
+      - models/tourism_model.joblib
+      - models/lookup_table.pkl
+    metrics:
+      - models/metrics.json:
+          cache: false

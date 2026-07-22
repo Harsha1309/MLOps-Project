@@ -1,0 +1,38 @@
+schema: '2.0'
+stages:
+  build_dataset:
+    cmd: python build_dataset.py
+    deps:
+    - path: build_dataset.py
+      hash: md5
+      md5: e7dd6159265b9c36efc2f868b9a53a8c
+      size: 9600
+    outs:
+    - path: data/india_tourism.csv
+      hash: md5
+      md5: e6d092247e4f58171a1a767160d23bf7
+      size: 48859
+  train:
+    cmd: python train.py
+    deps:
+    - path: data/india_tourism.csv
+      hash: md5
+      md5: e6d092247e4f58171a1a767160d23bf7
+      size: 48859
+    - path: train.py
+      hash: md5
+      md5: a2a3b949696bb860c55335807fcefe5b
+      size: 3422
+    outs:
+    - path: models/lookup_table.pkl
+      hash: md5
+      md5: d5e3fe42a4b190de7d1153aa70cd3cb8
+      size: 41735
+    - path: models/metrics.json
+      hash: md5
+      md5: 16f59428362edae1e3b488538b30fdae
+      size: 132
+    - path: models/tourism_model.joblib
+      hash: md5
+      md5: e747c604d44f56f18ee3cb15f57126c8
+      size: 8450274
