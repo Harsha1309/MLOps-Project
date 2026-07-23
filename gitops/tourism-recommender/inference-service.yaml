@@ -21,7 +21,7 @@ spec:
             memory: "1Gi"
         readinessProbe:
           httpGet:
-            path: /v1/models/tourism-recommender
+            path: /health
             port: 8000
           initialDelaySeconds: 10
           periodSeconds: 10
