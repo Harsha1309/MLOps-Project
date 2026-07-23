@@ -8,7 +8,7 @@ spec:
     serviceAccountName: tourism-dvc-sa
     containers:
       - name: kserve-container
-        image: 905418202149.dkr.ecr.us-west-2.amazonaws.com/india-tourism-api:latest
+        image: 672682388275.dkr.ecr.us-west-2.amazonaws.com/india-tourism-api:latest
         ports:
           - containerPort: 8080
             protocol: TCP

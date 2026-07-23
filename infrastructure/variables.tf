@@ -70,13 +70,13 @@ variable "node_disk_size" {
 variable "oidc_provider_arn" {
   description = "EKS OIDC provider ARN, for IRSA. Leave blank until the cluster exists; role creation is skipped when empty."
   type        = string
-  default     = ""
+  default     = "arn:aws:iam::672682388275:oidc-provider/oidc.eks.us-west-2.amazonaws.com/id/4C1F95639C152D6CFA200BE9EEB1EB47"
 }
 
 variable "oidc_provider_url" {
   description = "EKS OIDC provider URL without https://, e.g. oidc.eks.ap-south-1.amazonaws.com/id/XXXX"
   type        = string
-  default     = ""
+  default     = "https://oidc.eks.us-west-2.amazonaws.com/id/4C1F95639C152D6CFA200BE9EEB1EB47"
 }
 
 variable "namespace" {
