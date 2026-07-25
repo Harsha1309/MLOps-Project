@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: tourism-api-route
+  namespace: tourism-mlops
+spec:
+  entryPoints: [web]
+  routes:
+    - match: PathPrefix(`/recommend`) || PathPrefix(`/predict`) || PathPrefix(`/health`)
+      kind: Rule
+      services:
+        - name: tourism-recommender-predictor 
+          port: 80
