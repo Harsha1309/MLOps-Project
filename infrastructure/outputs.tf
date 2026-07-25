@@ -40,6 +40,11 @@ output "ecr_repository_url" {
   value = aws_ecr_repository.this.repository_url
 }
 
-output "github_actions_role_arn" {
-  value = aws_iam_role.github_actions_ecr.arn
+output "github_actions_access_key_id" {
+  value = aws_iam_access_key.github_actions_ci.id
+}
+
+output "github_actions_secret_access_key" {
+  value     = aws_iam_access_key.github_actions_ci.secret
+  sensitive = true
 }

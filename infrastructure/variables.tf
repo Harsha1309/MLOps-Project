@@ -98,14 +98,20 @@ variable "ecr_repository_name" {
   default     = "india-tourism-api"
 }
 
-variable "github_org" {
-  description = "GitHub org/user that owns the repo (for OIDC trust policy)"
-  type        = string
-  default     = "Harsha1309"
-}
+# variable "github_org" {
+#   description = "GitHub org/user that owns the repo (for OIDC trust policy)"
+#   type        = string
+#   default     = "Harsha1309"
+# }
 
-variable "github_repo" {
-  description = "GitHub repo name (for OIDC trust policy)"
+# variable "github_repo" {
+#   description = "GitHub repo name (for OIDC trust policy)"
+#   type        = string
+#   default     = "MLOps-Project"
+# }
+
+variable "dvc_remote_bucket" {
+  description = "S3 bucket name used as the DVC remote"
   type        = string
-  default     = "india-tourism-api"
+  default     = "tourism-mlops-dvc-794b65e1"
 }
