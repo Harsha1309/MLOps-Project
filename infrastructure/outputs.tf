@@ -32,8 +32,8 @@ output "dvc_bucket_arn" {
   value = aws_s3_bucket.dvc_remote.arn
 }
 output "dvc_irsa_role_arn" {
-  value       = var.oidc_provider_arn != "" ? aws_iam_role.dvc_irsa[0].arn : null
-  description = "Annotate the tourism-dvc-sa ServiceAccount with this ARN once the cluster exists"
+  value       = aws_iam_role.dvc_irsa.arn
+  description = "Annotate the tourism-dvc-sa ServiceAccount with this ARN"
 }
 
 output "ecr_repository_url" {

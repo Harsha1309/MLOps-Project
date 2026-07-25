@@ -67,18 +67,6 @@ variable "node_disk_size" {
   default     = 20
 }
 
-variable "oidc_provider_arn" {
-  description = "EKS OIDC provider ARN, for IRSA. Leave blank until the cluster exists; role creation is skipped when empty."
-  type        = string
-  default     = "arn:aws:iam::672682388275:oidc-provider/oidc.eks.us-west-2.amazonaws.com/id/4C1F95639C152D6CFA200BE9EEB1EB47"
-}
-
-variable "oidc_provider_url" {
-  description = "EKS OIDC provider URL without https://, e.g. oidc.eks.ap-south-1.amazonaws.com/id/XXXX"
-  type        = string
-  default     = "https://oidc.eks.us-west-2.amazonaws.com/id/4C1F95639C152D6CFA200BE9EEB1EB47"
-}
-
 variable "namespace" {
   description = "K8s namespace whose service account will assume this role"
   type        = string
@@ -113,6 +101,7 @@ variable "ecr_repository_name" {
 variable "github_org" {
   description = "GitHub org/user that owns the repo (for OIDC trust policy)"
   type        = string
+  default     = "Harsha1309"
 }
 
 variable "github_repo" {

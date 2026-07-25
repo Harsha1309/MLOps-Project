@@ -79,36 +79,34 @@ resource "aws_iam_policy" "dvc_s3_access" {
   policy      = data.aws_iam_policy_document.dvc_s3_access.json
 }
 
-# IRSA trust policy — only created once the EKS OIDC provider exists.
+# IRSA trust policy. Sourced from the Terraform-managed aws_iam_openid_connect_provider.eks
+# (oidc.tf) rather than manually-supplied vars — no second apply pass needed, since both
+# the provider and this role are created from the same aws_eks_cluster.main resource.
 data "aws_iam_policy_document" "irsa_trust" {
-  count = var.oidc_provider_arn != "" ? 1 : 0
-
   statement {
     effect  = "Allow"
     actions = ["sts:AssumeRoleWithWebIdentity"]
 
     principals {
       type        = "Federated"
-      identifiers = [var.oidc_provider_arn]
+      identifiers = [aws_iam_openid_connect_provider.eks.arn]
     }
 
     condition {
       test     = "StringEquals"
-      variable = "${var.oidc_provider_url}:sub"
+      variable = "${replace(aws_eks_cluster.main.identity[0].oidc[0].issuer, "https://", "")}:sub"
       values   = ["system:serviceaccount:${var.namespace}:${var.service_account_name}"]
     }
   }
 }
 
 resource "aws_iam_role" "dvc_irsa" {
-  count              = var.oidc_provider_arn != "" ? 1 : 0
   name               = "${var.project_name}-dvc-irsa"
-  assume_role_policy = data.aws_iam_policy_document.irsa_trust[0].json
+  assume_role_policy = data.aws_iam_policy_document.irsa_trust.json
 }
 
 resource "aws_iam_role_policy_attachment" "dvc_irsa_attach" {
-  count      = var.oidc_provider_arn != "" ? 1 : 0
-  role       = aws_iam_role.dvc_irsa[0].name
+  role       = aws_iam_role.dvc_irsa.name
   policy_arn = aws_iam_policy.dvc_s3_access.arn
 }
 
