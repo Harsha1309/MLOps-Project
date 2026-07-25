@@ -13,7 +13,7 @@ spec:
       values: |
         clusterName: sandbox-eks
         region: us-west-2
-        vpcId: <your-vpc-id>
+        vpcId: vpc-0bd2a203cc69525ca
         serviceAccount:
           create: true
           name: aws-load-balancer-controller
@@ -42,7 +42,7 @@ spec:
       values: |
         clusterName: sandbox-eks
         region: us-west-2
-        vpcId: <your-vpc-id>
+        vpcId: vpc-0bd2a203cc69525ca
         serviceAccount:
           create: true
           name: aws-load-balancer-controller
