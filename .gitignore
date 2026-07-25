@@ -42,4 +42,4 @@ override.tf.json
 *_override.tf
 *_override.tf.json
 *.tfvars
-*.tfvars.json
+*.tfvars.jsondata/india_tourism.csv
