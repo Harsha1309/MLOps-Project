@@ -11,4 +11,4 @@ metadata:
   namespace: tourism-mlops
   annotations:
     # Fill in after `terraform apply` in infrastructure/ (see dvc_irsa_role_arn output)
-    eks.amazonaws.com/role-arn: "arn:aws:iam::${AWS_ACCOUNT_ID}:role/tourism-mlops-dvc-irsa"
+    eks.amazonaws.com/role-arn: "arn:aws:iam::851725267504:role/tourism-mlops-dvc-irsa"
