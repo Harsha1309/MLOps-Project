@@ -63,12 +63,12 @@ jobs:
       - name: Run smoke tests
         run: python test_api.py
 
-      - name: Commit dvc.lock if changed
+      - name: Commit dvc.lock and dvc config if changed # only for sandbox purpose
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add dvc.lock
-          git diff --staged --quiet || git commit -m "Update dvc.lock [skip ci]"
+          git add dvc.lock .dvc/config
+          git diff --staged --quiet || git commit -m "Update dvc.lock and DVC remote config [skip ci]"
           git push
 
       - name: Upload model artifacts
