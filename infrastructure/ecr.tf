@@ -155,7 +155,7 @@ data "aws_iam_policy_document" "ci_permissions" {
     sid       = "DvcRemoteBucketList"
     effect    = "Allow"
     actions   = ["s3:ListBucket"]
-    resources = ["${aws_s3_bucket.dvc_remote.arn}/*"]
+    resources = [aws_s3_bucket.dvc_remote.arn]
   }
 }
 
