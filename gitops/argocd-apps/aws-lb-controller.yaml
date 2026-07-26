@@ -18,7 +18,7 @@ spec:
           create: true
           name: aws-load-balancer-controller
           annotations:
-            eks.amazonaws.com/role-arn: arn:aws:iam::412902451616:role/sandbox-eks-alb-controller
+            eks.amazonaws.com/role-arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/sandbox-eks-alb-controller
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
@@ -47,7 +47,7 @@ spec:
           create: true
           name: aws-load-balancer-controller
           annotations:
-            eks.amazonaws.com/role-arn: arn:aws:iam::412902451616:role/sandbox-eks-alb-controller
+            eks.amazonaws.com/role-arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/sandbox-eks-alb-controller
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
