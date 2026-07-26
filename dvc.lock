@@ -30,7 +30,7 @@ stages:
       size: 41735
     - path: models/metrics.json
       hash: md5
-      md5: f1aa8cc55f8065a6df4f4cfbf22dd1d5
+      md5: cfcf648eaaa344a3efab4a4769be37e8
       size: 133
     - path: models/tourism_model.joblib
       hash: md5
