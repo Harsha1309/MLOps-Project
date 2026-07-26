@@ -39,6 +39,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2
 
+      - name: Resolve DVC remote bucket
+        run: |
+          ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          BUCKET="tourism-mlops-dvc-${ACCOUNT_ID}"
+          echo "DVC_BUCKET=$BUCKET" >> "$GITHUB_ENV"
+
+      - name: Point DVC at current remote
+        run: dvc remote modify storage url "s3://${DVC_BUCKET}/dvc-store"
+
       - name: Pull cached data/models from DVC remote
         run: dvc pull -f || true   # ok if nothing cached yet on first run
 
