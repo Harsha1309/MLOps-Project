@@ -148,14 +148,14 @@ data "aws_iam_policy_document" "ci_permissions" {
       "s3:PutObject",
       "s3:DeleteObject",
     ]
-    resources = ["arn:aws:s3:::${var.dvc_remote_bucket}/*"]
+    resources = ["${aws_s3_bucket.dvc_remote.arn}/*"]
   }
 
   statement {
     sid       = "DvcRemoteBucketList"
     effect    = "Allow"
     actions   = ["s3:ListBucket"]
-    resources = ["arn:aws:s3:::${var.dvc_remote_bucket}"]
+    resources = ["${aws_s3_bucket.dvc_remote.arn}/*"]
   }
 }
 

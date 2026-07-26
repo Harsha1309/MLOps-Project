@@ -2,8 +2,10 @@ resource "random_id" "bucket_suffix" {
   byte_length = 4
 }
 
+data "aws_caller_identity" "current" {}
+
 resource "aws_s3_bucket" "dvc_remote" {
-  bucket = "${var.project_name}-dvc-${random_id.bucket_suffix.hex}"
+  bucket = "${var.project_name}-dvc-${data.aws_caller_identity.current.account_id}"
 
   tags = {
     Project     = var.project_name

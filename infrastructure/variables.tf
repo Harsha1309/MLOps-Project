@@ -109,9 +109,3 @@ variable "ecr_repository_name" {
 #   type        = string
 #   default     = "MLOps-Project"
 # }
-
-variable "dvc_remote_bucket" {
-  description = "S3 bucket name used as the DVC remote"
-  type        = string
-  default     = "tourism-mlops-dvc-794b65e1"
-}
