@@ -48,3 +48,15 @@ output "github_actions_secret_access_key" {
   value     = aws_iam_access_key.github_actions_ci.secret
   sensitive = true
 }
+
+output "alb_controller_role_arn" {
+  value = aws_iam_role.alb_controller.arn
+}
+
+output "mlflow_db_endpoint" {
+  value = aws_db_instance.mlflow.address
+}
+
+output "mlflow_irsa_role_arn" {
+  value = aws_iam_role.mlflow_irsa.arn
+}

@@ -31,6 +31,3 @@ resource "aws_iam_role_policy_attachment" "alb_controller" {
   policy_arn = aws_iam_policy.alb_controller.arn
 }
 
-output "alb_controller_role_arn" {
-  value = aws_iam_role.alb_controller.arn
-}

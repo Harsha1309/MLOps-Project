@@ -110,4 +110,61 @@ resource "aws_iam_role_policy_attachment" "dvc_irsa_attach" {
   policy_arn = aws_iam_policy.dvc_s3_access.arn
 }
 
+# --- MLflow S3 (artifact store) access ---
+
+data "aws_iam_policy_document" "mlflow_s3_access" {
+  statement {
+    sid       = "MlflowBucketList"
+    effect    = "Allow"
+    actions   = ["s3:ListBucket"]
+    resources = [aws_s3_bucket.mlflow_artifacts.arn]
+  }
+
+  statement {
+    sid    = "MlflowObjectReadWrite"
+    effect = "Allow"
+    actions = [
+      "s3:GetObject",
+      "s3:PutObject",
+      "s3:DeleteObject",
+    ]
+    resources = ["${aws_s3_bucket.mlflow_artifacts.arn}/*"]
+  }
+}
+
+resource "aws_iam_policy" "mlflow_s3_access" {
+  name        = "${var.project_name}-mlflow-s3-access"
+  description = "Read/write access to the MLflow artifact S3 bucket"
+  policy      = data.aws_iam_policy_document.mlflow_s3_access.json
+}
+
+# Separate trust policy from dvc_irsa — that one is pinned to a single
+# namespace/SA pair via var.namespace/var.service_account_name.
+data "aws_iam_policy_document" "mlflow_irsa_trust" {
+  statement {
+    effect  = "Allow"
+    actions = ["sts:AssumeRoleWithWebIdentity"]
+
+    principals {
+      type        = "Federated"
+      identifiers = [aws_iam_openid_connect_provider.eks.arn]
+    }
+
+    condition {
+      test     = "StringEquals"
+      variable = "${replace(aws_eks_cluster.main.identity[0].oidc[0].issuer, "https://", "")}:sub"
+      values   = ["system:serviceaccount:mlflow:mlflow-sa"]
+    }
+  }
+}
+
+resource "aws_iam_role" "mlflow_irsa" {
+  name               = "${var.project_name}-mlflow-irsa"
+  assume_role_policy = data.aws_iam_policy_document.mlflow_irsa_trust.json
+}
+
+resource "aws_iam_role_policy_attachment" "mlflow_irsa_attach" {
+  role       = aws_iam_role.mlflow_irsa.name
+  policy_arn = aws_iam_policy.mlflow_s3_access.arn
+}
 
