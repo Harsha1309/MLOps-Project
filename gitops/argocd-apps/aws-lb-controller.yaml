@@ -13,12 +13,12 @@ spec:
       values: |
         clusterName: sandbox-eks
         region: us-west-2
-        vpcId: vpc-017863e87fff67b46
+        vpcId: vpc-0a6e88884e6122e05
         serviceAccount:
           create: true
           name: aws-load-balancer-controller
           annotations:
-            eks.amazonaws.com/role-arn: arn:aws:iam::502456973374:role/sandbox-eks-alb-controller
+            eks.amazonaws.com/role-arn: arn:aws:iam::394711685791:role/sandbox-eks-alb-controller
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
@@ -42,12 +42,12 @@ spec:
       values: |
         clusterName: sandbox-eks
         region: us-west-2
-        vpcId: vpc-017863e87fff67b46
+        vpcId: vpc-0a6e88884e6122e05
         serviceAccount:
           create: true
           name: aws-load-balancer-controller
           annotations:
-            eks.amazonaws.com/role-arn: arn:aws:iam::502456973374:role/sandbox-eks-alb-controller
+            eks.amazonaws.com/role-arn: arn:aws:iam::394711685791:role/sandbox-eks-alb-controller
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
