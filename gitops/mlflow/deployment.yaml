@@ -11,16 +11,19 @@ spec:
     metadata:
       labels: { app: mlflow-server }
     spec:
-      serviceAccountName: mlflow-sa   # IRSA-annotated, for S3 access
+      serviceAccountName: mlflow-sa
       containers:
         - name: mlflow
           image: ghcr.io/mlflow/mlflow:v2.16.0
-          command: ["mlflow", "server"]
+          command: ["/bin/bash", "-c"]
           args:
-            - "--backend-store-uri=$(BACKEND_STORE_URI)"
-            - "--default-artifact-root=s3://sandbox-eks-mlflow-artifacts/"
-            - "--host=0.0.0.0"
-            - "--port=5000"
+            - |
+              pip install --no-cache-dir psycopg2-binary boto3 && \
+              mlflow server \
+                --backend-store-uri=$(BACKEND_STORE_URI) \
+                --default-artifact-root=s3://sandbox-eks-mlflow-artifacts/ \
+                --host=0.0.0.0 \
+                --port=5000
           envFrom:
             - secretRef: { name: mlflow-db-secret }
           ports: [{ containerPort: 5000 }]
