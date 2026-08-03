@@ -21,16 +21,16 @@ stages:
       size: 48859
     - path: train.py
       hash: md5
-      md5: a2a3b949696bb860c55335807fcefe5b
-      size: 3422
+      md5: c54e0ac180a347dfcfd8c7653089325a
+      size: 3491
     outs:
     - path: models/lookup_table.pkl
       hash: md5
-      md5: d5e3fe42a4b190de7d1153aa70cd3cb8
-      size: 41735
+      md5: 63abd6145a1febfc3a515b922eed8b7b
+      size: 41137
     - path: models/metrics.json
       hash: md5
-      md5: a45fb7d4a210e529c3c195a97137c0f8
+      md5: 8988646b55c752f50db94ada3f976a9e
       size: 133
     - path: models/tourism_model.joblib
       hash: md5
