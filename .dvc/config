@@ -1,5 +1,5 @@
 [core]
     remote = storage
 ['remote "storage"']
-    url = s3://tourism-mlops-dvc-394711685791/dvc-store
+    url = s3://tourism-mlops-dvc-342137541559/dvc-store
     region = us-west-2
