@@ -20,13 +20,26 @@ spec:
             - |
               pip install --no-cache-dir psycopg2-binary boto3 && \
               mlflow server \
-                --backend-store-uri=$(BACKEND_STORE_URI) \
+                --backend-store-uri="postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_ENDPOINT}:5432/${DB_NAME}" \
                 --default-artifact-root=s3://sandbox-eks-mlflow-artifacts/ \
                 --host=0.0.0.0 \
                 --port=5000
+          env:
+            - name: DB_ENDPOINT
+              value: "sandbox-eks-mlflow-db.c50ccgkm8xzw.us-west-2.rds.amazonaws.com"
           envFrom:
             - secretRef: { name: mlflow-db-secret }
-          ports: [{ containerPort: 5000 }]
+          volumeMounts:
+            - name: secrets-store
+              mountPath: "/mnt/secrets-store"
+              readOnly: true
+      volumes:
+        - name: secrets-store
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: mlflow-db-secret-provider
 ---
 apiVersion: v1
 kind: Service

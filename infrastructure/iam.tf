@@ -168,3 +168,17 @@ resource "aws_iam_role_policy_attachment" "mlflow_irsa_attach" {
   policy_arn = aws_iam_policy.mlflow_s3_access.arn
 }
 
+
+resource "aws_iam_role_policy" "mlflow_secrets_read" {
+  name = "mlflow-secretsmanager-read"
+  role = aws_iam_role.mlflow_irsa.name
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect   = "Allow"
+      Action   = "secretsmanager:GetSecretValue"
+      Resource = aws_secretsmanager_secret.mlflow_db.arn
+    }]
+  })
+}
