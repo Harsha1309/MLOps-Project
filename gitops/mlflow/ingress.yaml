@@ -1,21 +1,26 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
 metadata:
-  name: mlflow-alb-ingress
+  name: mlflow-strip-prefix
   namespace: mlflow
-  annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
 spec:
-  ingressClassName: alb
-  rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: mlflow-server
-                port:
-                  number: 5000
+  stripPrefix:
+    prefixes:
+      - /mlflow
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: mlflow-route
+  namespace: mlflow
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: PathPrefix(`/mlflow`)
+      kind: Rule
+      middlewares:
+        - name: mlflow-strip-prefix
+      services:
+        - name: mlflow-server
+          port: 5000

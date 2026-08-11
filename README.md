@@ -306,6 +306,32 @@ If the DB endpoint changes after reprovisioning, Terraform updates the AWS
 secret version and the CSI secret sync will continue to create the correct
 value.
 
+### 4c. Use the existing Traefik ingress for MLflow
+
+MLflow now reuses the existing Traefik frontend instead of a dedicated ALB.
+The MLflow app is exposed through the Traefik ALB at `/mlflow`.
+
+The deployed route is in `gitops/mlflow/ingress.yaml` and uses the existing
+Traefik `web` entrypoint.
+
+To reach MLflow after sync:
+
+```bash
+kubectl get ingress -n traefik
+```
+
+Then visit:
+
+```bash
+http://<traefik-alb-host>/mlflow/
+```
+
+If you prefer host-based routing, update the Traefik route to match a custom
+hostname instead of `/mlflow`.
+
+If the old `mlflow-alb-ingress` still exists in the cluster, delete it once
+Traefik is working, because it is no longer needed.
+
 ### 5. Install KServe (RawDeployment mode, no Knative/Istio)
 
 ```bash
