@@ -306,31 +306,66 @@ If the DB endpoint changes after reprovisioning, Terraform updates the AWS
 secret version and the CSI secret sync will continue to create the correct
 value.
 
-### 4c. Use the existing Traefik ingress for MLflow
+### 4c. Deploy the MLflow tracking server via ArgoCD
 
-MLflow now reuses the existing Traefik frontend instead of a dedicated ALB.
-The MLflow app is exposed through the Traefik ALB at `/mlflow`.
+This repository now runs MLflow in its own ArgoCD application and namespace.
+The MLflow app is defined in `gitops/mlflow-application.yaml` and deploys the
+following resources in the `mlflow` namespace:
 
-The deployed route is in `gitops/mlflow/ingress.yaml` and uses the existing
-Traefik `web` entrypoint.
+- `gitops/mlflow/deployment.yaml`: MLflow server container on port 5000
+- `gitops/mlflow/service-account.yaml`: IRSA role for MLflow AWS permissions
+- `gitops/mlflow/secret-provider.yaml`: Secrets Store CSI Driver syncs
+  database connection values from AWS Secrets Manager into `mlflow-db-secret`
+- `gitops/mlflow/ingress.yaml`: dedicated ALB ingress for MLflow
 
-To reach MLflow after sync:
+After applying the ArgoCD app, verify the MLflow ingress:
 
 ```bash
-kubectl get ingress -n traefik
+kubectl apply -f gitops/mlflow-application.yaml
+kubectl get ingress -n mlflow
 ```
 
 Then visit:
 
 ```bash
-http://<traefik-alb-host>/mlflow/
+http://<mlflow-alb-ingress ADDRESS>/
 ```
 
-If you prefer host-based routing, update the Traefik route to match a custom
-hostname instead of `/mlflow`.
+### 4d. Use MLflow for training and experiment tracking
 
-If the old `mlflow-alb-ingress` still exists in the cluster, delete it once
-Traefik is working, because it is no longer needed.
+The training script in `train.py` supports MLflow tracking via the
+`MLFLOW_TRACKING_URI` environment variable.
+
+- If `MLFLOW_TRACKING_URI` is set, training logs go to the deployed MLflow
+  server.
+- If it is unset, training falls back to the local `./mlruns` file store.
+
+Example:
+
+```bash
+export MLFLOW_TRACKING_URI="http://<mlflow-alb-ingress ADDRESS>"
+python train.py
+```
+
+The script logs:
+
+- parameters and metrics for each run
+- the trained scikit-learn model
+- `models/metrics.json` as an artifact
+
+### 4e. How MLflow is used in this project
+
+The current API implementation in `main.py` loads the serialized model from
+`models/tourism_model.joblib` at startup, not directly from MLflow.
+That means:
+
+- MLflow is used for experiment tracking and central logging of training runs
+- the FastAPI recommender service serves the model file stored in `models/`
+- the model is not automatically pulled from MLflow at inference time
+
+If you want to serve models directly from MLflow in the future, the API would
+need to load an MLflow artifact with `mlflow.pyfunc.load_model(...)` or a
+similar mechanism.
 
 ### 5. Install KServe (RawDeployment mode, no Knative/Istio)
 

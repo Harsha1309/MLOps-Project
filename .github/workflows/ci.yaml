@@ -16,6 +16,7 @@ jobs:
 
     env:
       AWS_REGION: us-west-2
+      MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
 
     steps:
       - name: Checkout repo
