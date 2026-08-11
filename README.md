@@ -267,6 +267,45 @@ kubectl get pods -n traefik
 kubectl get ingressclass
 ```
 
+### 4a. Install Secrets Store CSI Driver for MLflow
+
+MLflow uses AWS Secrets Manager through the Secrets Store CSI Driver. Install
+or upgrade the CSI driver and AWS provider with `syncSecret` and
+`tokenRequests` enabled so the `mlflow-db-secret` secret is created
+automatically.
+
+```bash
+helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
+helm repo add aws-secrets-store-csi-driver https://aws.github.io/secrets-store-csi-driver-provider-aws
+helm repo update
+helm upgrade --install csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver \
+  --namespace kube-system --create-namespace \
+  --set syncSecret.enabled=true \
+  --set tokenRequests.enabled=true
+helm upgrade --install csi-secrets-store-provider-aws aws-secrets-store-csi-driver/secrets-store-csi-driver-provider-aws \
+  --namespace kube-system --create-namespace
+```
+
+If the CSI driver is already installed, upgrade it with the same values.
+
+The repo includes `gitops/mlflow/csi-rbac.yaml`, which grants the CSI
+service account the Kubernetes secret permissions it needs for MLflow
+secret sync. This avoids manual `kubectl patch clusterrole` steps in the
+future.
+
+### 4b. MLflow secret and DB endpoint flow
+
+The MLflow deployment now reads `DB_ENDPOINT` from the `mlflow-db-secret`
+Secret created by the Secrets Store CSI Driver. That secret is synced from the
+AWS Secrets Manager secret created by Terraform, and it now includes the
+RDS endpoint automatically.
+
+Because the endpoint is stored in Secrets Manager and injected into the pod,
+there is no longer a hardcoded RDS host in `gitops/mlflow/deployment.yaml`.
+If the DB endpoint changes after reprovisioning, Terraform updates the AWS
+secret version and the CSI secret sync will continue to create the correct
+value.
+
 ### 5. Install KServe (RawDeployment mode, no Knative/Istio)
 
 ```bash

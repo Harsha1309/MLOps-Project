@@ -24,9 +24,6 @@ spec:
                 --default-artifact-root=s3://sandbox-eks-mlflow-artifacts/ \
                 --host=0.0.0.0 \
                 --port=5000
-          env:
-            - name: DB_ENDPOINT
-              value: "sandbox-eks-mlflow-db.c50ccgkm8xzw.us-west-2.rds.amazonaws.com"
           envFrom:
             - secretRef: { name: mlflow-db-secret }
           volumeMounts:

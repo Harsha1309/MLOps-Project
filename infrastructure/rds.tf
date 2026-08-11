@@ -42,6 +42,7 @@ resource "aws_secretsmanager_secret_version" "mlflow_db" {
     username = "mlflow_admin"
     password = random_password.mlflow_db.result
     dbname   = "mlflow"
+    endpoint = aws_db_instance.mlflow.address
   })
 }
 
