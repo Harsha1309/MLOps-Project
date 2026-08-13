@@ -157,6 +157,24 @@ data "aws_iam_policy_document" "ci_permissions" {
     actions   = ["s3:ListBucket"]
     resources = [aws_s3_bucket.dvc_remote.arn]
   }
+
+  statement {
+    sid    = "MlflowArtifactBucket"
+    effect = "Allow"
+    actions = [
+      "s3:GetObject",
+      "s3:PutObject",
+      "s3:DeleteObject",
+    ]
+    resources = ["${aws_s3_bucket.mlflow_artifacts.arn}/*"]
+  }
+
+  statement {
+    sid       = "MlflowArtifactBucketList"
+    effect    = "Allow"
+    actions   = ["s3:ListBucket"]
+    resources = [aws_s3_bucket.mlflow_artifacts.arn]
+  }
 }
 
 resource "aws_iam_user_policy" "ci_permissions" {

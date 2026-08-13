@@ -270,54 +270,39 @@ kubectl get ingressclass
 ### 4a. Install Secrets Store CSI Driver for MLflow
 
 MLflow uses AWS Secrets Manager through the Secrets Store CSI Driver. Install
-or upgrade the CSI driver and AWS provider with `syncSecret` and
-`tokenRequests` enabled so the `mlflow-db-secret` secret is created
-automatically.
+the driver and the AWS provider as two independent releases, each with its
+own ServiceAccount — do not try to make the provider chart reuse the
+driver's ServiceAccount; forcing that causes a Helm ownership conflict.
 
 ```bash
 helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
 helm repo add aws-secrets-store-csi-driver https://aws.github.io/secrets-store-csi-driver-provider-aws
 helm repo update
+
+# Driver: own ServiceAccount, with tokenRequests set correctly at install time
 helm upgrade --install csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver \
   --namespace kube-system --create-namespace \
   --set syncSecret.enabled=true \
-  --set tokenRequests.enabled=true
+  --set "tokenRequests[0].audience=sts.amazonaws.com" \
+  --set "tokenRequests[1].audience=pods.eks.amazonaws.com"
+
+# Provider: its own ServiceAccount, no shared name
 helm upgrade --install csi-secrets-store-provider-aws aws-secrets-store-csi-driver/secrets-store-csi-driver-provider-aws \
   --namespace kube-system --create-namespace
 ```
 
-If the CSI driver is already installed, upgrade it with the same values.
+
+
+```bash
+kubectl get pods -n kube-system -l app.kubernetes.io/name=secrets-store-csi-driver-provider-aws \
+  -o jsonpath='{.items[0].spec.serviceAccountName}'
+```
+
+and point `infrastructure/oidc.tf`'s trust policy at that SA/namespace.
 
 The repo includes `gitops/mlflow/csi-rbac.yaml`, which grants the CSI
 service account the Kubernetes secret permissions it needs for MLflow
-secret sync. This avoids manual `kubectl patch clusterrole` steps in the
-future.
-
-### 4b. MLflow secret and DB endpoint flow
-
-The MLflow deployment now reads `DB_ENDPOINT` from the `mlflow-db-secret`
-Secret created by the Secrets Store CSI Driver. That secret is synced from the
-AWS Secrets Manager secret created by Terraform, and it now includes the
-RDS endpoint automatically.
-
-Because the endpoint is stored in Secrets Manager and injected into the pod,
-there is no longer a hardcoded RDS host in `gitops/mlflow/deployment.yaml`.
-If the DB endpoint changes after reprovisioning, Terraform updates the AWS
-secret version and the CSI secret sync will continue to create the correct
-value.
-
-### 4c. Deploy the MLflow tracking server via ArgoCD
-
-This repository now runs MLflow in its own ArgoCD application and namespace.
-The MLflow app is defined in `gitops/mlflow-application.yaml` and deploys the
-following resources in the `mlflow` namespace:
-
-- `gitops/mlflow/deployment.yaml`: MLflow server container on port 5000
-- `gitops/mlflow/service-account.yaml`: IRSA role for MLflow AWS permissions
-- `gitops/mlflow/secret-provider.yaml`: Secrets Store CSI Driver syncs
-  database connection values from AWS Secrets Manager into `mlflow-db-secret`
-- `gitops/mlflow/ingress.yaml`: dedicated ALB ingress for MLflow
-
+secret sync.
 After applying the ArgoCD app, verify the MLflow ingress:
 
 ```bash
