@@ -82,7 +82,8 @@ jobs:
             models/metrics.json
 
   docker-build:
-    needs: dvc-pipeline
+    # runs independently of the dvc-pipeline job
+    
     runs-on: ubuntu-latest
     permissions:
       id-token: write
