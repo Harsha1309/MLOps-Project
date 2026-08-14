@@ -405,9 +405,11 @@ dvc push
 
 ### 7. Deploy the tourism-recommender app via ArgoCD
 
-Before applying `namespace.yaml`, fill in the `tourism-dvc-sa` annotation
-with the real IRSA role ARN from step 1
-(`terraform output dvc_irsa_role_arn`) if it isn't already correct.
+`namespace.yaml`, `inference-service.yaml`, `service-account.yaml`, and
+`secret-provider.yaml` under `gitops/` are generated files — see
+[Keeping gitops values in sync](#keeping-gitops-values-in-sync) below. Don't
+hand-edit them; if the values look stale (e.g. after a fresh sandbox
+account), run `./scripts/render-gitops.sh` instead.
 
 ```bash
 kubectl apply -f gitops/apps/tourism-recommender.yaml
@@ -464,13 +466,60 @@ curl -X POST http://localhost:8080/predict \
 
 ---
 
+## Keeping gitops values in sync
+
+Every sandbox account reset changes the AWS account ID, VPC ID, and IAM role
+ARNs — values that show up in several `gitops/` manifests (`vpcId`,
+`role-arn` annotations, the ECR image reference, the Secrets Manager ARN).
+Editing these by hand and re-pushing doesn't scale, so they're generated
+instead:
+
+- **Source of truth:** `gitops/**/*.yaml.tmpl` — these hold `${VAR}`
+  placeholders and are what you actually edit if the *structure* of a
+  manifest changes.
+- **Generated files:** the matching `gitops/**/*.yaml` (no `.tmpl`) is what
+  ArgoCD actually syncs from. It's rendered from the `.tmpl` file by
+  substituting values pulled live from `terraform output` — never edit
+  these directly, they'll just get overwritten.
+- **Renderer:** `scripts/render-gitops.sh` runs `terraform output` against
+  the `infrastructure/` remote state and `envsubst`s every `.tmpl` file in
+  place.
+
+Files templated this way: `gitops/apps/aws-lb-controller.yaml`,
+`gitops/charts/mlflow/secret-provider.yaml`,
+`gitops/charts/mlflow/service-account.yaml`,
+`gitops/charts/tourism-recommender/namespace.yaml`,
+`gitops/charts/tourism-recommender/inference-service.yaml`.
+
+**To pick up new values after a sandbox account change:**
+
+```bash
+cd infrastructure && terraform apply   # provisions the new account
+cd ..
+./scripts/render-gitops.sh             # re-renders gitops/*.yaml from the new outputs
+git add gitops/ && git commit -m "Sync gitops values to new sandbox account"
+git push                                # ArgoCD (automated + selfHeal) picks it up
+```
+
+Or just trigger the **`sync-gitops-values`** job in `.github/workflows/ci.yaml`
+(`workflow_dispatch`, or it runs on every push to `main`) — it does the same
+three steps in CI and commits the result back, the same way `dvc.lock` gets
+auto-committed by the DVC pipeline job.
+
+If you add a new hardcoded value to a gitops manifest in the future: add a
+matching `output` in `infrastructure/outputs.tf`, add the var to the
+`export`/`VARS` list in `scripts/render-gitops.sh`, and use `${YOUR_VAR}` in
+the `.tmpl` file.
+
 ## Notes / gotchas hit while building this
 
-- **`aws-lb-controller.yaml` must be a single clean YAML document.** Two
-  `Application` blocks concatenated without a `---` separator (with
-  different `vpcId` values) will break parsing or install with the wrong
-  VPC, and the ALB controller will never provision a load balancer —
-  Ingress objects will sit with no `ADDRESS`.
+- **`aws-lb-controller.yaml` must be a single clean YAML document.** It
+  previously had two `Application` blocks concatenated without a `---`
+  separator (from a bad hand-edit), which breaks parsing or installs with
+  the wrong VPC, leaving the ALB controller unable to provision a load
+  balancer — Ingress objects sit with no `ADDRESS`. It's generated now (see
+  [Keeping gitops values in sync](#keeping-gitops-values-in-sync)), so this
+  shouldn't recur, but it's worth knowing what silent breakage looks like.
 - **Re-syncing/reinstalling the ALB controller can desync its webhook TLS
   cert** from the `ValidatingWebhookConfiguration`'s `caBundle`, causing
   `x509: certificate signed by unknown authority` errors on `kubectl apply`
