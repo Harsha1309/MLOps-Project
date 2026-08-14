@@ -8,7 +8,56 @@ on:
   workflow_dispatch:
 
 jobs:
+  sync-gitops-values:
+    # Keeps gitops/**/*.yaml in sync with the current sandbox account's
+    # vpcId / account ID / role ARNs, rendered from `terraform output`.
+    # needs: dvc-pipeline so this doesn't race dvc-pipeline's own git push
+    # to main (both jobs commit to the repo; running in parallel risks a
+    # non-fast-forward push failure or a lost commit).
+    needs: dvc-pipeline
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    env:
+      AWS_REGION: us-west-2
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: main   # pick up dvc-pipeline's commit, not the stale triggering SHA
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform init (reads existing remote state, no apply)
+        working-directory: infrastructure
+        run: terraform init
+
+      - name: Render gitops templates from terraform output
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq gettext-base
+          ./scripts/render-gitops.sh
+
+      - name: Commit rendered gitops manifests if changed
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add gitops/
+          git diff --staged --quiet || git commit -m "Sync gitops manifests with current terraform outputs [skip ci]"
+          git pull --rebase origin main
+          git push
+
   dvc-pipeline:
+    needs: sync-gitops-values   # so that gitops manifests are up-to-date before we push dvc.lock
     runs-on: ubuntu-latest
     permissions:
       id-token: write   # required for OIDC auth to AWS (S3 access for DVC remote)
@@ -82,54 +131,7 @@ jobs:
             models/lookup_table.pkl
             models/metrics.json
 
-  sync-gitops-values:
-    # Keeps gitops/**/*.yaml in sync with the current sandbox account's
-    # vpcId / account ID / role ARNs, rendered from `terraform output`.
-    # needs: dvc-pipeline so this doesn't race dvc-pipeline's own git push
-    # to main (both jobs commit to the repo; running in parallel risks a
-    # non-fast-forward push failure or a lost commit).
-    needs: dvc-pipeline
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    env:
-      AWS_REGION: us-west-2
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          ref: main   # pick up dvc-pipeline's commit, not the stale triggering SHA
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
-
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v3
-
-      - name: Terraform init (reads existing remote state, no apply)
-        working-directory: infrastructure
-        run: terraform init
-
-      - name: Render gitops templates from terraform output
-        run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq gettext-base
-          ./scripts/render-gitops.sh
-
-      - name: Commit rendered gitops manifests if changed
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add gitops/
-          git diff --staged --quiet || git commit -m "Sync gitops manifests with current terraform outputs [skip ci]"
-          git pull --rebase origin main
-          git push
-
+  
   docker-build:
     # runs independently of dvc-pipeline / sync-gitops-values — it only
     # pushes an image to ECR, never commits to git, so there's no push
