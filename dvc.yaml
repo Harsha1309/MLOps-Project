@@ -1,15 +1,15 @@
 stages:
   build_dataset:
-    cmd: python build_dataset.py
+    cmd: python src/tourism_api/pipeline/build_dataset.py
     deps:
-      - build_dataset.py
+      - src/tourism_api/pipeline/build_dataset.py
     outs:
       - data/india_tourism.csv
 
   train:
-    cmd: python train.py
+    cmd: python src/tourism_api/pipeline/train.py
     deps:
-      - train.py
+      - src/tourism_api/pipeline/train.py
       - data/india_tourism.csv
     outs:
       - models/tourism_model.joblib

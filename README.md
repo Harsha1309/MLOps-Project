@@ -12,7 +12,7 @@ Repo: `Harsha1309/MLOps-Project`
 
 ## How the model works
 
-1. **Dataset** (`build_dataset.py` → `data/india_tourism.csv`)
+1. **Dataset** (`src/tourism_api/pipeline/build_dataset.py` → `data/india_tourism.csv`)
    56 popular Indian destinations × 12 months = **672 rows**. Each row has:
    `place, state, category, region, month, avg_temp_c, avg_rainfall_mm,
    cost_tier, is_best_month, suitability_score`.
@@ -22,14 +22,14 @@ Repo: `Harsha1309/MLOps-Project`
    `suitability_score` (0–10) is a heuristic label combining temperature
    comfort, rainfall penalty, and known best-season boosts.
 
-2. **Training** (`train.py` → `models/tourism_model.joblib`)
+2. **Training** (`src/tourism_api/pipeline/train.py` → `models/tourism_model.joblib`)
    A `RandomForestRegressor` inside a `scikit-learn` `Pipeline`
    (one-hot encoding for `category`/`region` + passthrough numeric features)
    learns to predict `suitability_score` from
    `avg_temp_c, avg_rainfall_mm, cost_tier, month_num, category, region`.
    Achieves **R² ≈ 0.96 / MAE ≈ 0.26** on a held-out 20% test split.
 
-3. **API** (`main.py`) serves the trained model plus a lookup table of all
+3. **API** (`src/tourism_api/api/main.py`) serves the trained model plus a lookup table of all
    place/month combinations, so it can score and rank real destinations for
    whatever month/filters the user asks for.
 
@@ -48,22 +48,23 @@ Repo: `Harsha1309/MLOps-Project`
 
 ```bash
 pip install -r requirements.txt
+pip install -e .
 
 # 1. Build the dataset
-python build_dataset.py
+python src/tourism_api/pipeline/build_dataset.py
 
 # 2. Train the model
-python train.py
+python src/tourism_api/pipeline/train.py
 
 # 3. Run the API
-uvicorn main:app --reload --port 8000
+uvicorn tourism_api.api.main:app --reload --port 8000
 ```
 
 Open interactive docs at **http://127.0.0.1:8000/docs**.
 
 ```bash
 # smoke tests (no server needed)
-python test_api.py
+python tests/test_api.py
 
 curl -X POST http://127.0.0.1:8000/predict \
   -H "Content-Type: application/json" \
@@ -87,21 +88,28 @@ curl -X POST http://127.0.0.1:8000/recommend \
 
 ```
 MLOps-Project/
-├── build_dataset.py          # generates data/india_tourism.csv
-├── train.py                   # trains model -> models/tourism_model.joblib
-├── main.py                     # FastAPI app
-├── test_api.py                 # smoke tests
+├── src/
+│   └── tourism_api/
+│       ├── api/
+│       │   └── main.py           # FastAPI app
+│       └── pipeline/
+│           ├── build_dataset.py  # generates data/india_tourism.csv
+│           └── train.py          # trains model -> models/tourism_model.joblib
+├── tests/
+│   └── test_api.py               # smoke tests
+├── docker/
+│   └── Dockerfile
+├── pyproject.toml                # makes src/ an installable package
 ├── requirements.txt
-├── Dockerfile
-├── dvc.yaml / dvc.lock         # DVC pipeline
+├── dvc.yaml / dvc.lock           # DVC pipeline
 ├── data/
 │   └── india_tourism.csv
 ├── models/
 │   ├── tourism_model.joblib
 │   ├── lookup_table.pkl
 │   └── metrics.json
-├── .github/workflows/ci.yaml   # DVC repro + Docker build/push to ECR
-├── infrastructure/             # Terraform: VPC, EKS, ECR, IAM/IRSA, S3 backend
+├── .github/workflows/ci.yaml     # DVC repro + Docker build/push to ECR
+├── infrastructure/                # Terraform: VPC, EKS, ECR, IAM/IRSA, S3 backend
 │   ├── vpc.tf
 │   ├── eks.tf
 │   ├── oidc.tf
@@ -110,16 +118,25 @@ MLOps-Project/
 │   ├── s3.tf
 │   └── outputs.tf
 └── gitops/
-    ├── argocd-application.yaml       # ArgoCD App -> gitops/tourism-recommender
-    ├── argocd-apps/
+    ├── apps/                         # ArgoCD Application manifests (app-of-apps layer)
+    │   ├── tourism-recommender.yaml  # ArgoCD App -> gitops/charts/tourism-recommender
+    │   ├── mlflow.yaml               # ArgoCD App -> gitops/charts/mlflow
     │   ├── argocd-ingress.yaml       # ALB Ingress for ArgoCD UI
     │   ├── aws-lb-controller.yaml    # ArgoCD App: AWS LB Controller (Helm)
     │   └── traefik.yaml              # ArgoCD App: Traefik (Helm)
-    └── tourism-recommender/
-        ├── namespace.yaml            # namespace + tourism-dvc-sa (IRSA)
-        ├── inference-service.yaml    # KServe InferenceService
-        ├── ingress-route.yaml        # Traefik IngressRoute -> predictor
-        └── ingress.yaml              # ALB Ingress -> Traefik Service
+    └── charts/                       # actual workload manifests, per app
+        ├── mlflow/
+        │   ├── namespace.yaml
+        │   ├── deployment.yaml
+        │   ├── ingress.yaml
+        │   ├── service-account.yaml
+        │   ├── secret-provider.yaml
+        │   └── csi-rbac.yaml
+        └── tourism-recommender/
+            ├── namespace.yaml            # namespace + tourism-dvc-sa (IRSA)
+            ├── inference-service.yaml    # KServe InferenceService
+            ├── ingress-route.yaml        # Traefik IngressRoute -> predictor
+            └── ingress.yaml              # ALB Ingress -> Traefik Service
 ```
 
 ---
@@ -251,15 +268,15 @@ kubectl rollout restart deployment argocd-server -n argocd
 
 ### 4. Deploy the AWS Load Balancer Controller + Traefik via ArgoCD
 
-Before applying, confirm `gitops/argocd-apps/aws-lb-controller.yaml` has a
+Before applying, confirm `gitops/apps/aws-lb-controller.yaml` has a
 single, clean `Application` document with `vpcId` matching your current
 `terraform output vpc_id` — this file has broken in the past (two
 concatenated documents with stale/conflicting VPC IDs), which prevents the
 controller from installing or discovering subnets correctly.
 
 ```bash
-kubectl apply -f gitops/argocd-apps/aws-lb-controller.yaml
-kubectl apply -f gitops/argocd-apps/traefik.yaml
+kubectl apply -f gitops/apps/aws-lb-controller.yaml
+kubectl apply -f gitops/apps/traefik.yaml
 
 # confirm both are healthy before continuing
 kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controller
@@ -300,13 +317,13 @@ kubectl get pods -n kube-system -l app.kubernetes.io/name=secrets-store-csi-driv
 
 and point `infrastructure/oidc.tf`'s trust policy at that SA/namespace.
 
-The repo includes `gitops/mlflow/csi-rbac.yaml`, which grants the CSI
+The repo includes `gitops/charts/mlflow/csi-rbac.yaml`, which grants the CSI
 service account the Kubernetes secret permissions it needs for MLflow
 secret sync.
 After applying the ArgoCD app, verify the MLflow ingress:
 
 ```bash
-kubectl apply -f gitops/mlflow-application.yaml
+kubectl apply -f gitops/apps/mlflow.yaml
 kubectl get ingress -n mlflow
 ```
 
@@ -318,7 +335,7 @@ http://<mlflow-alb-ingress ADDRESS>/
 
 ### 4d. Use MLflow for training and experiment tracking
 
-The training script in `train.py` supports MLflow tracking via the
+The training script in `src/tourism_api/pipeline/train.py` supports MLflow tracking via the
 `MLFLOW_TRACKING_URI` environment variable.
 
 - If `MLFLOW_TRACKING_URI` is set, training logs go to the deployed MLflow
@@ -329,7 +346,7 @@ Example:
 
 ```bash
 export MLFLOW_TRACKING_URI="http://<mlflow-alb-ingress ADDRESS>"
-python train.py
+python src/tourism_api/pipeline/train.py
 ```
 
 The script logs:
@@ -340,7 +357,7 @@ The script logs:
 
 ### 4e. How MLflow is used in this project
 
-The current API implementation in `main.py` loads the serialized model from
+The current API implementation in `src/tourism_api/api/main.py` loads the serialized model from
 `models/tourism_model.joblib` at startup, not directly from MLflow.
 That means:
 
@@ -367,13 +384,13 @@ helm install kserve oci://ghcr.io/kserve/charts/kserve \
 Locally (or let GitHub Actions CI in `.github/workflows/ci.yaml` do this on push to `main`):
 
 ```bash
-python build_dataset.py
-python train.py
+python src/tourism_api/pipeline/build_dataset.py
+python src/tourism_api/pipeline/train.py
 
 aws ecr get-login-password --region us-west-2 | \
   docker login --username AWS --password-stdin <ACCOUNT_ID>.dkr.ecr.us-west-2.amazonaws.com
 
-docker build -t <ACCOUNT_ID>.dkr.ecr.us-west-2.amazonaws.com/india-tourism-api:latest .
+docker build -f docker/Dockerfile -t <ACCOUNT_ID>.dkr.ecr.us-west-2.amazonaws.com/india-tourism-api:latest .
 docker push <ACCOUNT_ID>.dkr.ecr.us-west-2.amazonaws.com/india-tourism-api:latest
 ```
 
@@ -393,8 +410,8 @@ with the real IRSA role ARN from step 1
 (`terraform output dvc_irsa_role_arn`) if it isn't already correct.
 
 ```bash
-kubectl apply -f gitops/argocd-application.yaml
-# ArgoCD will auto-sync everything under gitops/tourism-recommender/:
+kubectl apply -f gitops/apps/tourism-recommender.yaml
+# ArgoCD will auto-sync everything under gitops/charts/tourism-recommender/:
 #   namespace.yaml, inference-service.yaml, ingress-route.yaml, ingress.yaml
 
 kubectl get inferenceservice -n tourism-mlops tourism-recommender -w
@@ -403,8 +420,8 @@ kubectl get inferenceservice -n tourism-mlops tourism-recommender -w
 ### 8. Expose ArgoCD UI and the API via Ingress
 
 ```bash
-kubectl apply -f gitops/argocd-apps/argocd-ingress.yaml
-kubectl apply -f gitops/tourism-recommender/ingress.yaml   # ALB -> Traefik Service (port 80)
+kubectl apply -f gitops/apps/argocd-ingress.yaml
+kubectl apply -f gitops/charts/tourism-recommender/ingress.yaml   # ALB -> Traefik Service (port 80)
 
 kubectl get ingress -A -w
 ```
@@ -476,7 +493,7 @@ curl -X POST http://localhost:8080/predict \
 ## Resource footprint
 
 The predictor container requests `250m CPU / 512Mi` and limits at
-`1 CPU / 1Gi` (see `gitops/tourism-recommender/inference-service.yaml`) —
+`1 CPU / 1Gi` (see `gitops/charts/tourism-recommender/inference-service.yaml`) —
 sized to leave room for `kube-system`, the KServe controller, the ALB
 controller, Traefik, and ArgoCD alongside it on the sandbox cluster's
 `t3.medium` nodes.

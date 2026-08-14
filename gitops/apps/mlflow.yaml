@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Harsha1309/MLOps-Project.git
     targetRevision: main
-    path: gitops/mlflow          # points at the folder with deployment.yaml, service.yaml, namespace.yaml, secretproviderclass.yaml
+    path: gitops/charts/mlflow   # points at the folder with deployment.yaml, service.yaml, namespace.yaml, secretproviderclass.yaml
 
   destination:
     server: https://kubernetes.default.svc

@@ -8,15 +8,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python deps first (layer caching)
-COPY requirements.txt .
+COPY requirements.txt pyproject.toml ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project code
-COPY build_dataset.py train.py main.py test_api.py ./
+# Copy project code and install it as a package
+COPY src/ ./src/
+RUN pip install --no-cache-dir -e .
 
 # Build dataset and train the model at image build time
-RUN python build_dataset.py && python train.py
+RUN python src/tourism_api/pipeline/build_dataset.py && python src/tourism_api/pipeline/train.py
 
 EXPOSE 8000
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "tourism_api.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Harsha1309/MLOps-Project.git
     targetRevision: main
-    path: gitops/tourism-recommender
+    path: gitops/charts/tourism-recommender
  
   destination:
     server: https://kubernetes.default.svc

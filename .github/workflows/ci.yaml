@@ -31,6 +31,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install -e .
           pip install "dvc[s3]"
 
       - name: Configure AWS credentials
@@ -62,7 +63,7 @@ jobs:
         run: dvc metrics show
 
       - name: Run smoke tests
-        run: python test_api.py
+        run: python tests/test_api.py
 
       - name: Commit dvc.lock and dvc config if changed # only for sandbox purpose
         run: |
@@ -104,7 +105,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: ./docker/Dockerfile
           push: false
           tags: india-tourism-api:${{ github.sha }}
           load: true

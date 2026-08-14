@@ -15,9 +15,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 
-BASE_DIR = Path(__file__).parent
-DATA_PATH = BASE_DIR / "data" / "india_tourism.csv"
-MODEL_DIR = BASE_DIR / "models"
+REPO_ROOT = Path(__file__).resolve().parents[3]
+DATA_PATH = REPO_ROOT / "data" / "india_tourism.csv"
+MODEL_DIR = REPO_ROOT / "models"
 MODEL_DIR.mkdir(exist_ok=True)
 
 NUMERIC_FEATURES = ["avg_temp_c", "avg_rainfall_mm", "cost_tier", "month_num"]

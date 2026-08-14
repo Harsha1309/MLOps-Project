@@ -8,7 +8,7 @@ Run:
 """
 
 from fastapi.testclient import TestClient
-from main import app
+from tourism_api.api.main import app
 
 
 def run():

@@ -13,7 +13,7 @@ Endpoints:
                                       given optional temperature/category/budget filters
 
 Run:
-    uvicorn main:app --reload --port 8000
+    uvicorn tourism_api.api.main:app --reload --port 8000
 """
 
 from pathlib import Path
@@ -25,9 +25,9 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-BASE_DIR = Path(__file__).parent
-MODEL_PATH = BASE_DIR / "models" / "tourism_model.joblib"
-LOOKUP_PATH = BASE_DIR / "models" / "lookup_table.pkl"
+REPO_ROOT = Path(__file__).resolve().parents[3]
+MODEL_PATH = REPO_ROOT / "models" / "tourism_model.joblib"
+LOOKUP_PATH = REPO_ROOT / "models" / "lookup_table.pkl"
 
 MONTHS = [
     "January", "February", "March", "April", "May", "June",

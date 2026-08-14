@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).resolve().parents[3] / "data"
 DATA_DIR.mkdir(exist_ok=True)
 
 MONTHS = [
