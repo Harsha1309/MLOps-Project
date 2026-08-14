@@ -14,7 +14,6 @@ jobs:
     # needs: dvc-pipeline so this doesn't race dvc-pipeline's own git push
     # to main (both jobs commit to the repo; running in parallel risks a
     # non-fast-forward push failure or a lost commit).
-    needs: dvc-pipeline
     runs-on: ubuntu-latest
     permissions:
       contents: write
