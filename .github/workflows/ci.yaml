@@ -17,6 +17,9 @@ jobs:
       dvc: ${{ steps.filter.outputs.dvc }}
       docker: ${{ steps.filter.outputs.docker }}
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
       - name: Check changed paths
         id: filter
         uses: dorny/paths-filter@v3
