@@ -8,7 +8,47 @@ on:
   workflow_dispatch:
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      infrastructure: ${{ steps.filter.outputs.infrastructure }}
+      dvc: ${{ steps.filter.outputs.dvc }}
+      docker: ${{ steps.filter.outputs.docker }}
+    steps:
+      - name: Check changed paths
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            infrastructure:
+              - '.github/workflows/ci.yaml'
+              - 'infrastructure/**/*.tf'
+              - 'infrastructure/**/*.json'
+              - 'scripts/render-gitops.sh'
+              - 'gitops/**/*.yaml.tmpl'
+            dvc:
+              - '.github/workflows/ci.yaml'
+              - 'dvc.yaml'
+              - 'dvc.lock'
+              - '.dvc/config'
+              - 'src/tourism_api/pipeline/**'
+              - 'tests/**'
+              - 'data/**'
+              - 'models/**'
+              - 'requirements.txt'
+              - 'pyproject.toml'
+            docker:
+              - '.github/workflows/ci.yaml'
+              - 'docker/**'
+              - 'src/tourism_api/**'
+              - 'requirements.txt'
+              - 'pyproject.toml'
+
   sync-gitops-values:
+    needs: changes
+    if: ${{ needs.changes.outputs.infrastructure == 'true' || github.event_name == 'workflow_dispatch' }}
     # Keeps gitops/**/*.yaml in sync with the current sandbox account's
     # vpcId / account ID / role ARNs, rendered from `terraform output`.
     # needs: dvc-pipeline so this doesn't race dvc-pipeline's own git push
@@ -56,8 +96,8 @@ jobs:
           git push
 
   dvc-pipeline:
-    needs: sync-gitops-values   # so that gitops manifests are up-to-date before we push dvc.lock
-    if: ${{ always() }}          # still run when the optional gitops sync cannot read Terraform state
+    needs: [changes, sync-gitops-values]
+    if: ${{ always() && (needs.changes.outputs.dvc == 'true' || github.event_name == 'workflow_dispatch') }}
     runs-on: ubuntu-latest
     permissions:
       id-token: write   # required for OIDC auth to AWS (S3 access for DVC remote)
@@ -136,6 +176,8 @@ jobs:
 
   
   docker-build:
+    needs: changes
+    if: ${{ needs.changes.outputs.docker == 'true' || github.event_name == 'workflow_dispatch' }}
     # runs independently of dvc-pipeline / sync-gitops-values — it only
     # pushes an image to ECR, never commits to git, so there's no push
     # race to worry about here.
