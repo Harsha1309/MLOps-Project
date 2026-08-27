@@ -13,6 +13,12 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT/infrastructure"
 
+template_count=$(find "$REPO_ROOT/gitops" -type f -name '*.yaml.tmpl' | wc -l | tr -d ' ')
+if [[ "$template_count" -eq 0 ]]; then
+  echo "No GitOps templates found; nothing to render."
+  exit 0
+fi
+
 echo "Reading terraform outputs..."
 tf_out() { terraform output -raw "$1"; }
 

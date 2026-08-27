@@ -57,6 +57,7 @@ jobs:
 
   dvc-pipeline:
     needs: sync-gitops-values   # so that gitops manifests are up-to-date before we push dvc.lock
+    if: ${{ always() }}          # still run when the optional gitops sync cannot read Terraform state
     runs-on: ubuntu-latest
     permissions:
       id-token: write   # required for OIDC auth to AWS (S3 access for DVC remote)
