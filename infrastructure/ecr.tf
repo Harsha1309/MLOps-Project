@@ -159,6 +159,29 @@ data "aws_iam_policy_document" "ci_permissions" {
   }
 
   statement {
+    sid    = "TerraformStateBucketList"
+    effect = "Allow"
+    actions = [
+      "s3:ListBucket",
+    ]
+    resources = ["arn:aws:s3:::eks-sandbox-tfstate-1f9cc70a"]
+  }
+
+  statement {
+    sid    = "TerraformStateObjects"
+    effect = "Allow"
+    actions = [
+      "s3:GetObject",
+      "s3:PutObject",
+      "s3:DeleteObject",
+    ]
+    resources = [
+      "arn:aws:s3:::eks-sandbox-tfstate-1f9cc70a/eks-sandbox/terraform.tfstate",
+      "arn:aws:s3:::eks-sandbox-tfstate-1f9cc70a/eks-sandbox/terraform.tfstate.tflock",
+    ]
+  }
+
+  statement {
     sid    = "MlflowArtifactBucket"
     effect = "Allow"
     actions = [
